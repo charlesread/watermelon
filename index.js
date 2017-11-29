@@ -8,7 +8,8 @@ const HMLS = require('hmls')
 const hmlsOptions = {
   server: {
     host: os.hostname(),
-    address: ip.address()
+    address: ip.address(),
+    port: 8000
   }
 }
 
