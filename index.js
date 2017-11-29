@@ -1,8 +1,16 @@
 'use strict'
 
+const os = require('os')
+
 const HMLS = require('hmls')
 
-const vc = new HMLS()
+const hmlsOptions = {
+  server: {
+    host: os.hostname()
+  }
+}
+
+const vc = new HMLS(hmlsOptions)
 
 !async function () {
   await vc.init()
