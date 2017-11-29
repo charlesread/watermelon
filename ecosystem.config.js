@@ -12,7 +12,8 @@ module.exports = {
       host: '174.138.79.67',
       ref: 'origin/master',
       repo: 'git@github.com:charlesread/watermelon.git',
-      path: '/home/node/apps/watermelon'
+      path: '/home/node/apps/watermelon',
+      'pre-setup': 'echo $USER'
     }
   }
 };
