@@ -13,7 +13,7 @@ module.exports = {
       ref: 'origin/master',
       repo: 'git@github.com:charlesread/watermelon.git',
       path: '/home/node/apps/watermelon',
-      'pre-setup': 'echo $USER'
+      'pre-deploy': 'echo $USER'
     }
   }
 };
