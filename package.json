@@ -10,7 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "hmls": "^1.1.11",
-    "ip": "^1.1.5",
-    "lasso": "^3.0.0"
+    "ip": "^1.1.5"
   }
 }
