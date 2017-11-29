@@ -2,11 +2,13 @@
 
 const os = require('os')
 
+const ip = require('ip')
 const HMLS = require('hmls')
 
 const hmlsOptions = {
   server: {
-    host: os.hostname()
+    host: os.hostname(),
+    address: ip.address()
   }
 }
 
