@@ -8,7 +8,7 @@ module.exports = {
   ],
   deploy: {
     production: {
-      user: 'cread',
+      user: 'node',
       host: '174.138.79.67',
       ref: 'origin/master',
       repo: 'git@github.com:charlesread/watermelon.git',
