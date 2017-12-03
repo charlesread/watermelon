@@ -1,7 +1,14 @@
-h3 {
-    color: #666;
+#divLogin {
+    background-color: #4267b2;
+    padding: 5px;
+    padding-right: 10px;
+    border-radius: 5px;
+    color: #fff;
+    position: absolute;
+    width: auto;
 }
 
-h4 {
-    color: #999;
+#divLogin i.fa {
+    font-size: 1.8em;
+    margin-right: 0.4em;
 }
