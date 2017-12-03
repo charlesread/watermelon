@@ -1,5 +1,67 @@
 <div id="secure-container">
-    <div id="greeting">
-        Hi, ${input.user.first_name}!
+    <div class="row">
+        <div class="col-sm">
+            <if(input.rsvp)>
+            </if>
+            <else>
+                <p>
+                    So, about that RSVP, I don't see one for you!
+                </p>
+                <p>
+                    <button type="button" class="btn btn-outline-success btn-lg" data-toggle="modal" data-target="#modalRsvpYes">See you there!</button>
+                </p>
+                <p>
+                    <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#modalRsvpNo">Maybe next time...</button>
+                </p>
+            </else>
+        </div>
+        <!--<div class="col-sm">col-sm</div>-->
+        <!--<div class="col-sm">col-sm</div>-->
+    </div>
+</div>
+
+<!-- Modals -->
+
+<!--RSVP Yes-->
+<div class="modal fade" id="modalRsvpYes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">That's awesome!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Just a few small things...
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-warning" data-dismiss="modal">Nevermind</button>
+                <button type="button" class="btn btn-outline-success">I'm done!</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--RSVP No-->
+<div class="modal fade" id="modalRsvpNo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">:(</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                We're so sorry to hear that you can't come!  No worries though, we still love you!
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-danger">L8r</button>
+                <button type="button" class="btn btn-outline-success" data-dismiss="modal" data-toggle="modal" data-target="#modalRsvpYes">Nevermind, I CAN COME!</button>
+            </div>
+        </div>
     </div>
 </div>

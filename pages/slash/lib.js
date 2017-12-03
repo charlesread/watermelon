@@ -6,7 +6,7 @@ socket.on('handshake', function(data) {
 });
 
 $(document).ready(function () {
-  $('#divLogin').click(function () {
+  $('#buttonLogin').click(function () {
     window.location.replace('/register');
   });
 });
