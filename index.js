@@ -10,7 +10,8 @@ const hmlsOptions = config.hmls
 
 const plugins = [
   {
-    register: require('hapi-auth-fb'),
+    // register: require('hapi-auth-fb'),
+    register: require('../hapi-auth-fb'),
     options: config.hapiAuthFb
   }
 ]

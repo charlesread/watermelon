@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "hapi-auth-fb": "^0.1.2",
+    "hapi-auth-fb": "^0.1.3",
     "hmls": "^1.1.11",
     "ip": "^1.1.5",
     "lasso": "^2.11.11",
