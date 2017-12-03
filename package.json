@@ -9,8 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "hapi-auth-fb": "^0.1.2",
     "hmls": "^1.1.11",
     "ip": "^1.1.5",
-    "lasso": "^2.11.11"
+    "lasso": "^2.11.11",
+    "mysql": "^2.15.0",
+    "require-self-ref": "^2.0.1"
   }
 }

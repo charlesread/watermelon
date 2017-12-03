@@ -1,14 +1,19 @@
 <lasso-page package-path="./browser.json"/>
 <include("../layout/template/index.marko", input)>
 <@main>
-<h1>
-    Welcome to /!
-</h1>
-<h3>
-    The current date is ${input.now}!
-</h3>
-<h4 id="handshake"></h4>
-<example-marko-component/>
-<img src="/assets/power_tux.png">
+<if(input.user)>
+    <secure-container user=input.user rsvp=input.rsvp/>
+        <if(input.rsvp)>
+            RSVP Exists
+        </if>
+        <else>
+            No RSVP
+        </else>
+</if>
+<else>
+    <p>
+        <a href="/register">Log in with Facebook</a>
+    </p>
+</else>
 </@main>
 </include>

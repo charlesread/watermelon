@@ -1,0 +1,37 @@
+'use strict'
+
+const os = require('os')
+const ip = require('ip')
+
+module.exports = {
+  hmls: {
+    server: {
+      host: os.hostname(),
+      address: ip.address(),
+      port: 8000
+    }
+  },
+  hapiAuthFb: {
+    credentialsName: '',
+    version: '2.11',
+    client_id: '',
+    client_secret: '',
+    loginSuccessRedirectPath: '/',
+    success: function (credentials) {
+      console.log(credentials)
+    },
+    yar: {
+      name: '',
+      cookieOptions: {
+        password: '',
+        ttl: 31536000000
+      }
+    }
+  },
+  db: {
+    host: '',
+    user: '',
+    password: '',
+    database: ''
+  }
+}

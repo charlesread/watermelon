@@ -3,3 +3,4 @@
 static/*.js
 static/*.css
 node_modules
+config.js
