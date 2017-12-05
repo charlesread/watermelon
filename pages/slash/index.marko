@@ -20,14 +20,14 @@
                </div>
             </div>
         </div>
-        <div class="col-sm-2 text-align-center">
+        <div class="col-sm-2">
            <div class="row">
                <div class="col">
                    <if(input.user)>
                     <secure-container user=input.user rsvp=input.rsvp/>
                    </if>
                    <else>
-                       <div id="divLogin">
+                       <div id="divLogin" class="text-align-center">
                            <button type="button" class="btn btn-outline-primary" id="buttonLogin">Log in with Facebook</button>
                            <div id="divLoginDisclaimer">
                                (just so we know who you are)
@@ -39,7 +39,25 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-8">events</div>
+        <div class="col-sm-8">
+            <!--<div id="map"></div>-->
+            <!--<script>-->
+              <!--function initMap() {-->
+                <!--var home = {lat: 33.728159, lng:  -84.379404};-->
+                <!--var map = new google.maps.Map(document.getElementById('map'), {-->
+                  <!--zoom: 10,-->
+                  <!--center: home-->
+                <!--});-->
+                <!--var marker = new google.maps.Marker({-->
+                  <!--position: home,-->
+                  <!--map: map-->
+                <!--});-->
+              <!--}-->
+            <!--</script>-->
+            <!--<script async defer-->
+                    <!--src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7pGDyYAtnNaLLFtUnRjFgpW4sEgLSGG4&callback=initMap">-->
+            <!--</script>-->
+        </div>
         <div class="col-sm-4">maps</div>
     </div>
     <div class="row">

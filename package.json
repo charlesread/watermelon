@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "boom": "^7.1.1",
     "hapi-auth-fb": "^0.1.3",
     "hmls": "^1.1.11",
     "ip": "^1.1.5",
