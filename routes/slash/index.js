@@ -3,6 +3,7 @@
 const db = require('~/lib/db')
 const sql = require('~/lib/sql')
 const userUtil = require('~/util/user')
+const log = require('~/lib/logger')()
 
 module.exports = [
   {
@@ -15,12 +16,12 @@ module.exports = [
         const credentials = req.yar.get('credentials')
         const page = require('~/pages/slash/index.marko')
         if (credentials) {
-          console.log('logged in, credentials: %j', credentials)
+          log.trace('Logged in, credentials: %j', credentials)
           user = await userUtil.maintainUser(credentials)
           rsvp = (await db.query(sql.rsvp.get.by.userId, user.id))[0]
           req.yar.set('user', user)
         } else {
-          console.log('not logged in')
+          log.trace('Not logged in')
         }
         reply(page.stream(
           {
@@ -31,7 +32,8 @@ module.exports = [
         ))
       })()
         .catch(function (err) {
-          console.log(err.stack)
+          log.error(err.message)
+          log.debug(err.trace)
         })
     }
   }

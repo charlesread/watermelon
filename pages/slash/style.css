@@ -30,6 +30,17 @@
     padding: 5px;
     text-align: center;
 }
+.place, #buttonPhoneAddSave {
+    display: inline-block;
+}
+
+.buttonSendToMobile {
+    margin-left: 10px;
+}
+
+.divPlace {
+    margin: 5px 0px;
+}
 
 /*FB*/
 /* Shared */
