@@ -14,6 +14,7 @@ $(document).ready(function () {
       $('#phone').addClass('is-invalid');
       return
     }
+    showAlert($('#alertPhoneAdd'), 'info', 'On it, just a sec...', 15000);
     $.ajax({
       url: '/api/phone',
       type: 'post',
