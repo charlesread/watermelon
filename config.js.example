@@ -29,9 +29,14 @@ module.exports = {
     }
   },
   db: {
-    host: '',
+    host: 'apps.charlesread.com',
     user: '',
     password: '',
     database: ''
+  },
+  twilio: {
+    accountSid: '',
+    authToken: '',
+    from: ''
   }
 }
