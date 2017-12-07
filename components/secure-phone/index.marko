@@ -1,0 +1,84 @@
+<div class="row">
+    <div class="col-sm" style="text-align: center">
+        <p>
+            <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modalPhoneAdd">
+                Update your Mobile Number
+            </button>
+        </p>
+        <p>
+            <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#modalPhoneWhy">
+                Y tho?
+            </button>
+        </p>
+    </div>
+</div>
+
+<!-- Modals -->
+
+<!--Phone Manage-->
+<div class="modal fade" id="modalPhoneAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update your Mobile Number</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="alert" id="alertPhoneAdd" role="alert"></div>
+                <p>
+                    Quick and easy, just enter your 10 digit mobile phone number below and save!
+                </p>
+                <input type="tel" id="phone" class="form-control" placeholder="mobile phone number"
+                       value="${input.user.phone}">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Nevermind</button>
+                <button type="button" class="btn btn-outline-success" id="buttonPhoneAddSave">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Why -->
+<div class="modal fade" id="modalPhoneWhy" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Why would we want your mobile number?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    So that we can send you selfies of us at Cracker Barrel, duh.
+                </p>
+                <p>
+                    It's really just so that we can send you updates about the wedding, like:
+                </p>
+                <ul>
+                    <li>
+                        "Hey check out website for a link to a $1,000 Amazon gift card!"
+                    </li>
+                    <li>
+                        "The first three people to get to the bar will win a FREE PONY!"
+                    </li>
+                    <li>
+                        "HOT COTTON CANDY IN THE COURTYARD!"
+                    </li>
+                </ul>
+                <p>
+                    We won't use it a lot, we promise, but you don't want to miss out!
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Meh, I'm good</button>
+                <button type="button" class="btn btn-outline-success" id="buttonPhoneAddDisplay" data-dismiss="modal" data-target="#modalPhoneAdd" data-toggle="modal">Ok, here's the digits...</button>
+            </div>
+        </div>
+    </div>
+</div>

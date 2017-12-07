@@ -23,7 +23,8 @@ module.exports = [
         reply()
       })()
         .catch(function (err) {
-          console.error(err.message)
+          log.error(err.message)
+          log.debug(err.stack)
           reply(boom.badRequest())
         })
     }
