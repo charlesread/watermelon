@@ -1,56 +1,51 @@
 <lasso-page package-path="./browser.json"/>
 <include("../layout/template/index.marko", input)>
 <@main>
+<if(input.user)>
+    <secure-container user=input.user rsvp=input.rsvp />
+</if>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-10">
-            <div class="row">
+        <div class="col">
+            <div class="row text-align-center">
                 <div class="col">
-                    <h1 class="display-3">Hey${input.user ? ', ' + input.user.first_name : ''}!</h1>
+                    <h1 class="display-1">
+                        <div class="cns">
+                            <div class="cnsElementLarge">CHARLES</div>
+                            <div class="cnsElementLarge cnsSymbol">&</div>
+                            <div class="cnsElementLarge">SARA</div>
+                        </div>
+                    </h1>
                 </div>
             </div>
-            <div class="row">
-               <div class="col">
-                   <h3 class="display-4">
-                       We're doing it!
-                   </h3>
-                   <p>
-                       Something fairly brief here, like an intro, more detailed text should be below.  Check out what happens to the RSVP area (on the right) when you make the browser window to be really skinny, this is what it will look like on a phone. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                   </p>
-               </div>
+            <div class="row text-align-center">
+                <div class="col">
+                    <h1 class="display-1">JUNE, 9 2018
+                    </h1>
+                </div>
             </div>
-        </div>
-        <div class="col-sm-2">
-           <div class="row">
-               <div class="col">
-                   <if(input.user)>
-                    <secure-container user=input.user rsvp=input.rsvp />
-                   </if>
-                   <else>
-                       <div id="divLogin" class="text-align-center">
-                           <button type="button" class="btn btn-outline-primary" id="buttonLogin">Log in with Facebook</button>
-                           <div id="divLoginDisclaimer">
-                               (just so we know who you are)
-                           </div>
-                       </div>
-                   </else>
-               </div>
-           </div>
+            <div class="row text-align-center">
+                <div class="col">
+                    <h1 class="display-1">
+                        ATLANTA
+                    </h1>
+                </div>
+            </div>
+            <if(!input.user)>
+                <div class="row text-align-center">
+                    <div class="col">
+                        <div id="divLogin" class="text-align-center">
+                            <button type="button" class="btn btn-outline-primary" id="buttonLogin">Log in with Facebook</button>
+                            <div id="divLoginDisclaimer">
+                                (just so we know who you are)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </if>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-8">
-            <div id="placeListing"></div>
-            <div id="map"></div>
-            <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7pGDyYAtnNaLLFtUnRjFgpW4sEgLSGG4&callback=initMap"></script>
-        </div>
-        <div class="col-sm-4">maps</div>
-    </div>
-    <div class="row">
-        <div class="col-sm">pictures</div>
-        <div class="col-sm">other things</div>
-        <div class="col-sm">whatever</div>
-    </div>
+    <!--<places-map/>-->
 </div>
 </@main>
 </include>

@@ -23,6 +23,9 @@ const vc = new HMLS(hmlsOptions)
   await vc.server.register(plugins)
   vc.server.auth.strategy('facebook', 'facebook')
   await vc.start()
+  if (process.send) {
+    process.send('online');
+  }
   log.info('server started: %s', vc.server.info.uri)
 }()
   .catch((err) => {

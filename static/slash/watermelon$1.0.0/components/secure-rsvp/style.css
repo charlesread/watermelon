@@ -1,0 +1,11 @@
+.attendee {
+    padding: 10px;
+}
+
+#divAttendees .attendee:nth-child(odd) {
+    background-color: #eee;
+}
+
+#alertPhoneAdd {
+    display: none;
+}
