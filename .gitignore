@@ -1,6 +1,6 @@
 .cache
 .idea
-static/*.js
-static/*.css
+static/**
+!static/.gitkeep
 node_modules
 config.js
