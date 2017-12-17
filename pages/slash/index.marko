@@ -2,18 +2,18 @@
 <include("../layout/template/index.marko", input)>
 <@main>
 <if(input.user)>
-<secure-container user=input.user rsvp=input.rsvp/>
-    </if>
+    <secure-container user=input.user rsvp=input.rsvp/>
+</if>
     <div class="container-fluid">
         <div class="row">
             <div class="col">
 
                 <div class="row text-align-center">
                     <div class="col">
-                        <h1 class="display-1">
+                        <h1>
                             <div class="cns">
                                 <div class="cnsElementLarge">CHARLES</div>
-                                <div class="cnsElementLarge cnsSymbol">&</div>
+                                <div class="cnsElementLarge cnsSymbol">+</div>
                                 <div class="cnsElementLarge">SARA</div>
                             </div>
                         </h1>
@@ -22,17 +22,18 @@
 
                 <!--Date Block-->
 
-                <div class="row text-align-center">
+                <div class="row text-align-center cns">
                     <div class="col">
-                        <h1 class="display-1">JUNE, 9 2018
-                        </h1>
+                        <h2 class="cnsLighter">
+                            JUNE, 9 2018
+                        </h2>
                     </div>
                 </div>
-                <div class="row text-align-center">
+                <div class="row text-align-center cns cnsLighter">
                     <div class="col">
-                        <h1 class="display-1">
+                        <h2 class="cnsLighter">
                             ATLANTA
-                        </h1>
+                        </h2>
                     </div>
                 </div>
 

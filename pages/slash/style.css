@@ -14,6 +14,72 @@
     text-align: center;
 }
 
+h1 {
+    font-size: 4em;
+}
+
+h2 {
+    font-size: 3em;
+}
+
+/*CNS*/
+
+
+.divCns {
+
+}
+
+.cns {
+    /*font-family: 'Poiret One', cursive;*/
+    /*font-family: 'Advent Pro', sans-serif;*/
+    /*font-family: 'Fondamento', cursive;*/
+    /*font-family: 'Corben', cursive;*/
+    font-family: 'Cormorant Infant', serif;
+}
+
+.cnsElementSmall {
+
+}
+
+.cnsElementLarge {
+
+}
+
+.cnsElementLarge, .cnsElementSmall {
+    display: inline-block;
+}
+
+.cnsSymbol {
+    color: #ff9f6f;
+    margin: auto 0.05em;
+    /*font-weight: bold;*/
+    /*font-family: 'Poiret One', cursive;*/
+    /*font-family: 'Advent Pro', sans-serif;*/
+    font-family: 'Fondamento', cursive;
+    /*font-family: 'Corben', cursive;*/
+    /*font-family: 'Cormorant Infant', serif;*/
+}
+
+.cnsLighter {
+    color: #555;
+}
+
+.cnsLighterLighter {
+    color: #eee;
+}
+
+.cnsSymbol.cnsElementLarge {
+    margin: auto 0.25em;
+}
+
+@media (max-width: 1000px) {
+    .cnsElementLarge {
+        display: block;
+    }
+}
+
+/*END CNS*/
+
 #colMap {
     padding-left: 0;
     padding-right: 0;

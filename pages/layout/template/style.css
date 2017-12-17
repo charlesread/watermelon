@@ -3,38 +3,7 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 
-.btn:focus,.btn:active {
+.btn:focus,.btn:active, .navbar-toggler {
     outline: none !important;
     box-shadow: none;
-}
-
-.divCns {
-
-}
-
-.cns {
-
-}
-
-.cnsElementSmall {
-
-}
-
-.cnsElementLarge {
-
-}
-
-.cnsElementLarge, .cnsElementSmall {
-    display: inline-block;
-}
-
-.cnsSymbol {
-    color: #0072ff;
-    margin: auto 0.25em;
-}
-
-@media (max-width: 1000px) {
-    .cnsElementLarge {
-        display: block;
-    }
 }
