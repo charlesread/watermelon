@@ -1,0 +1,22 @@
+<div class="sectionHeader">
+    FAQs
+</div>
+<div class="sectionBody">
+    <div class="row">
+        <div class="col">
+            <div id="accordianFaq" data-children=".faq">
+                <for(faq in input.faqs)>
+                    <div class="faq">
+                        <a data-toggle="collapse" data-parent="#accordianFaq" href="#faqItem${faq.id}" aria-expanded="false"
+                           aria-controls="faqItem${faq.id}">
+                            ${faq.question}
+                        </a>
+                        <div id="faqItem${faq.id}" class="collapse" role="tabpanel">
+                            ${faq.answer}
+                        </div>
+                    </div>
+                </for>
+            </div>
+        </div>
+    </div>
+</div>

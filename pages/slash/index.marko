@@ -1,163 +1,22 @@
 <lasso-page package-path="./browser.json"/>
 <include("../layout/template/index.marko", input)>
 <@main>
-<if(input.user)>
-    <secure-container user=input.user rsvp=input.rsvp/>
-</if>
+    <if(input.user)>
+        <secure-container user=input.user rsvp=input.rsvp/>
+    </if>
     <div class="container-fluid thingys">
         <div class="row">
             <div class="col">
-
-                <!--CNS-->
-
-                <div class="row text-align-center">
-                    <div class="col">
-                        <h1>
-                            <div class="cns">
-                                <div class="cnsElementLarge">CHARLES</div>
-                                <div class="cnsElementLarge cnsSymbol">+</div>
-                                <div class="cnsElementLarge">SARA</div>
-                            </div>
-                        </h1>
-                    </div>
-                </div>
-
-                <!--END CNS-->
-
-                <!--Date Block-->
-
-                <div class="row text-align-center cns">
-                    <div class="col">
-                        <h2 class="cnsLighter">
-                            JUNE, 9 2018
-                        </h2>
-                    </div>
-                </div>
-                <div class="row text-align-center cns cnsLighter">
-                    <div class="col">
-                        <h2 class="cnsLighter">
-                            ATLANTA
-                        </h2>
-                    </div>
-                </div>
-
-                <!--END Date Block-->
-
-                <!--FB Button-->
-
+                <splash/>
                 <if(!input.user)>
-                    <div class="row text-align-center">
-                        <div class="col">
-                            <div id="divLogin" class="text-align-center">
-                                <button type="button" class="btn btn-outline-primary" id="buttonLogin">Log in with
-                                    Facebook
-                                </button>
-                                <div id="divLoginDisclaimer">
-                                    (just so we know who you are)
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <fb-login/>
                 </if>
-
-                <!--END FB Button-->
-
-                <!--Welcome-->
-
-                <div class="row">
-                    <div class="col">
-                        <!--<div class="sectionHeader">-->
-                            <!--Welcome Statement-->
-                        <!--</div>-->
-                        <div class="sectionBody">
-                            <p>
-                                We're getting married and want you all to join the celebration! We hope our website
-                                informs,
-                                inspires, and tickles your funny bone! As two big kids who enjoy games, strange food,
-                                and
-                                laughter, we couldn't think of a better way to celebrate our love with friends and
-                                family
-                                than through a carnival-themed wedding!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!--END Welcome-->
-
-                <!--Events-->
-
-                <div class="row">
-                    <div class="col-sm-3 text-align-center">
-                        <div class="sectionHeader">
-                            Welcome Party
-                        </div>
-                        <div class="sectionBody">
-                            Friday, June, 8 2018
-                        </div>
-                    </div>
-                    <div class="col-sm-6 text-align-center">
-                        <div class="sectionHeader">
-                            Wedding Carnival
-                        </div>
-                        <div class="sectionBody">
-                            Saturday, June 9, 2018
-                            <div>
-                                The Solarium at Historic Scottish Rite
-                            </div>
-                            <div>
-                                321 West Hill Street
-                            </div>
-                            <div>
-                                Decatur, GA 30030
-                            </div>
-                            <div>
-                                <a href="https://www.thesolarium.com/" target="_blank">Website</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 text-align-center">
-                        <div class="sectionHeader">
-                            Sendoff Brunch
-                        </div>
-                        <div class="sectionBody">
-                            Sunday, June 10, 2018
-                        </div>
-                    </div>
-                </div>
-
-                <!--END Events-->
-
-                <!--FAQ-->
-
-                <div class="row">
-                    <div class="col">
-                        <div class="sectionHeader">
-                            FAQs
-                        </div>
-                        <div class="sectionBody">
-                            <div id="accordianFaq" data-children=".faq">
-                                <for(faq in input.faqs)>
-                                <div class="faq">
-                                    <a data-toggle="collapse" data-parent="#accordianFaq" href="#faqItem${faq.id}" aria-expanded="false" aria-controls="faqItem${faq.id}">
-                                        ${faq.question}
-                                    </a>
-                                    <div id="faqItem${faq.id}" class="collapse" role="tabpanel">
-                                        ${faq.answer}
-                                    </div>
-                                </div>
-                                </for>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--END FAQ-->
-
-
+                <welcome/>
+                <events/>
+                <faq faqs=input.faqs/>
             </div>
         </div>
-        <!--<places-map/>-->
+        <places-map/>
     </div>
 </@main>
 </include>
