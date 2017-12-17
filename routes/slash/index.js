@@ -23,11 +23,13 @@ module.exports = [
         } else {
           log.trace('Not logged in')
         }
+        const faqs = await  db.query(sql.faq.getAll)
         reply(page.stream(
           {
             now: new Date(),
             user,
-            rsvp
+            rsvp,
+            faqs
           }
         ))
       })()
