@@ -4,19 +4,20 @@
     <if(input.user)>
         <secure-container user=input.user rsvp=input.rsvp/>
     </if>
+            <div id="divTop"></div>
     <div class="container-fluid thingys">
         <div class="row">
             <div class="col">
-                <splash/>
+                <section-splash/>
                 <if(!input.user)>
                     <fb-login/>
                 </if>
-                <welcome/>
-                <events/>
-                <faq faqs=input.faqs/>
+                <section-welcome/>
+                <section-events/>
+                <section-faq faqs=input.faqs/>
             </div>
         </div>
-        <places-map/>
+        <section-places-map/>
     </div>
 </@main>
 </include>

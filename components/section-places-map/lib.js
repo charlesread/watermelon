@@ -6,7 +6,7 @@ function initMap () {
       var locations = xhr.responseJSON.places;
       var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 10,
-        center: new google.maps.LatLng(33.750282, -84.389020),
+        center: new google.maps.LatLng(33.850282, -84.389020),
         mapTypeId: google.maps.MapTypeId.ROADMAP
       });
       var infowindow = new google.maps.InfoWindow({});
@@ -29,7 +29,7 @@ function initMap () {
       }
       $.each(locations, function (index, location) {
         $('#placeListing').append('<div class="divPlace"><div class="place" x-info="' + location.info + '">' + location.name + '</div><button type="button" class="btn btn-outline-info btn-sm buttonSendToMobile">Send to my Mobile</button></div>');
-        $('#placeListing div.divPlace:last-child .place').click(function () {
+        $('#placeListing div.divPlace:last-child .place').hover(function () {
           infowindow.setContent(location.info);
           infowindow.open(map, location.marker);
         });
