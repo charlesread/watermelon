@@ -1,6 +1,7 @@
 body {
     /*margin-top: 1em;*/
     font-family: 'Raleway', sans-serif;
+    background-color: #eeeeee;
 }
 
 .btn:focus,.btn:active, .navbar-toggler {
