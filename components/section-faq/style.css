@@ -1,0 +1,20 @@
+.faq a[aria-expanded="true"] {
+    border: none;
+    font-weight: bold;
+    color: #ff9f6f;
+    margin: 10px -20px 0px -20px;
+}
+
+.faq a[aria-expanded="true"] + div {
+    margin: 0px -20px 10px -20px;
+}
+
+.faq a[aria-expanded="true"], .faq a[aria-expanded="true"] + div {
+    background-color: #fff;
+    display: block;
+    padding: 10px 20px 10px 20px;
+}
+
+.faq {
+    padding: 7px 0 7px 0;
+}

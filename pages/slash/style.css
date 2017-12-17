@@ -1,6 +1,12 @@
-/*.container-fluid {*/
-    /*margin-top: 56px;*/
-/*}*/
+.container-fluid a {
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px dashed #333;
+}
+
+.container-fluid a:hover {
+
+}
 
 #divTop {
     /*position: absolute;*/
@@ -23,6 +29,39 @@
     font-size: 2em;
     padding-top: 0.5em;
 }
+
+.sectionHeader:not([x-hide-decoration='true'])::after {
+    /*content: '&#xf145;';*/
+    /*content: "\f145";*/
+    /*content: "\f128";*/
+    font-family: 'FontAwesome';
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    color: #ff9f6f;
+    opacity: 0.50;
+    right: 20px;
+    position: absolute;
+}
+
+.sectionHeader.sectionDecorationFaq:not([x-hide-decoration='true'])::after {
+    content: "\f128";
+}
+
+.sectionHeader.sectionDecorationPlaces:not([x-hide-decoration='true'])::after {
+    content: "\f278";
+    /*content: "\f279";*/
+}
+
+/*.sectionHeader.sectionDecoration:not([x-hide-decoration='true'])::after {*/
+    /*content: "\f0a3";*/
+/*}*/
+
+.sectionHeader.sectionDecorationSaturday:not([x-hide-decoration='true'])::after {
+    content: "\f0d0";
+}
+
+
 
 .sectionBody {
     padding-bottom: 0.75em;

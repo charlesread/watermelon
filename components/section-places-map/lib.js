@@ -28,7 +28,7 @@ function initMap () {
         })(marker, i));
       }
       $.each(locations, function (index, location) {
-        $('#placeListing').append('<div class="divPlace"><div class="place" x-info="' + location.info + '">' + location.name + '</div><button type="button" class="btn btn-outline-info btn-sm buttonSendToMobile">Send to my Mobile</button></div>');
+        $('#placeListing').append('<div class="divPlace"><div class="place" x-info="' + location.info + '">' + location.name + '</div><button type="button" class="btn btn-outline-info btn-sm buttonSendToMobile">Send to <i class="fa fa-mobile" aria-hidden="true"></i></button></div>');
         $('#placeListing div.divPlace:last-child .place').hover(function () {
           infowindow.setContent(location.info);
           infowindow.open(map, location.marker);

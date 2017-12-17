@@ -5,7 +5,7 @@ body {
     /*background-color: #fbf3e3;*/
 }
 
-.btn:focus,.btn:active, .navbar-toggler {
+.btn:focus, .btn:active, .navbar-toggler {
     outline: none !important;
     box-shadow: none;
 }
