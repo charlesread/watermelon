@@ -17,9 +17,6 @@ module.exports = {
     client_id: '',
     client_secret: '',
     loginSuccessRedirectPath: '/',
-    success: function (credentials) {
-      console.log(credentials)
-    },
     yar: {
       name: '',
       cookieOptions: {
