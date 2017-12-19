@@ -27,6 +27,9 @@ $(document).ready(function () {
           setTimeout(function () {
             $('#modalPhoneAdd').modal('hide');
           }, 2000);
+          setTimeout(function () {
+            location.reload();
+          }, 2500);
         } else {
           showAlert($('#alertPhoneAdd'));
         }
