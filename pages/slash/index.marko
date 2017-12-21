@@ -8,13 +8,20 @@
     <div class="container-fluid thingys">
         <div class="row">
             <div class="col">
-                <section-splash/>
+                <section-splash></section-splash>
                 <if(!input.user)>
-                    <fb-login/>
+                    <fb-login></fb-login>
                 </if>
-                <section-welcome/>
-                <section-events/>
-                <section-faq faqs=input.faqs/>
+                <section-welcome></section-welcome>
+                <section-events></section-events>
+                <section-faq faqs=input.faqs></section-faq>
+                <div class="row">
+                    <div class="col" id="colGithub">
+                        <a href="https://github.com/charlesread/watermelon" target="_blank">
+                            <i class="fa fa-github" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
         <!--<section-places-map/>-->
