@@ -37,7 +37,7 @@
                     Mobile Number
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalPhoneAdd">
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalPhoneManage">
                         <if(!input.user.phone)>
                             <span class="badge badge-danger">!</span>
                         </if>
@@ -61,5 +61,9 @@
             </li>
 
         </ul>
+
+        <span class="navbar-text" data-toggle="tooltip" data-placement="bottom" title="Nothing to see here, just saying 'hey', carry on.">
+                Hey, ${input.user.first_name}!
+        </span>
     </div>
 </nav>

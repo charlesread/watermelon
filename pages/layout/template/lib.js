@@ -15,6 +15,10 @@ function showAlert(elem, type, message, dismissTime) {
   }, dismissTime || 5000);
 }
 
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
 // function initMap () {
 //   $.ajax({
 //     url: '/api/place',
