@@ -21,7 +21,7 @@ module.exports = [
       const bodyArray = body.split(' ')
       log.debug('body: %j', body)
       log.debug('bodyArray: %j', bodyArray)
-      const template = fs.readFileSync(path.join(__dirname, '..', '..', 'twiml', 'simpleResponse.xml')).toString()
+      const template = fs.readFileSync(path.join(__dirname, '..', '..', '..', '..', 'twiml', 'simpleResponse.xml')).toString()
       const compiledTemplate = Handlebars.compile(template)({body: 'hello'})
       !async function () {
         reply(compiledTemplate).header('Content-Type', 'application/xml')
