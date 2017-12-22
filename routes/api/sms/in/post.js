@@ -16,12 +16,21 @@ module.exports = [
     method: 'post',
     path: '/api/sms/in',
     handler: function (req, reply) {
+      let message
       log.trace('received request at /api/sms/in, payload: %j', req.payload)
-      const body = req.payload.Body
+      const body = req.payload.Body.toLowerCase()
       const bodyArray = body.split(' ')
       log.debug('body: %j', body)
       log.debug('bodyArray: %j', bodyArray)
       const template = fs.readFileSync(path.join(__dirname, '..', '..', '..', '..', 'twiml', 'simpleResponse.xml')).toString()
+      switch (bodyArray[0]) {
+        case 'admin':
+          message = 'something'
+          break
+        default:
+          message = 'nope'
+          break
+      }
       const compiledTemplate = Handlebars.compile(template)({body: 'hello'})
       !async function () {
         reply(compiledTemplate).header('Content-Type', 'application/xml')
