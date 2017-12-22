@@ -31,7 +31,7 @@ module.exports = [
           message = 'nope'
           break
       }
-      const compiledTemplate = Handlebars.compile(template)({body: 'hello'})
+      const compiledTemplate = Handlebars.compile(template)({body: message})
       !async function () {
         reply(compiledTemplate).header('Content-Type', 'application/xml')
       }()
