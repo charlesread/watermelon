@@ -13,10 +13,10 @@ module.exports = [
     path: '/api/sms/in',
     handler: function (req, reply) {
       log.trace('received request at /api/sms/in, payload: %j', req.payload)
-      (async function () {
+      !async function () {
         console.log(req.payload)
         reply()
-      })()
+      }()
         .catch(function (err) {
           log.error(err.message)
           log.debug(err.stack)
