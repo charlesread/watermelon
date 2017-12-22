@@ -1,6 +1,10 @@
 'use strict'
 
+const fs = require('fs')
+const path = require('path')
+
 const boom = require('boom')
+const Handlebars = require('handlebars')
 
 const db = require('~/lib/db')
 const sql = require('~/lib/sql')
@@ -17,8 +21,10 @@ module.exports = [
       const bodyArray = body.split(' ')
       log.debug('body: %j', body)
       log.debug('bodyArray: %j', bodyArray)
+      const template = fs.readFileSync(path.join(__dirname, '..', '..', '..', 'twiml', 'simpleResponse.xml')).toString()
+      const compiledTemplate = Handlebars.compile(template)({body: 'hello'})
       !async function () {
-        reply()
+        reply(compiledTemplate).header('Content-Type', 'application/xml')
       }()
         .catch(function (err) {
           log.error(err.message)
