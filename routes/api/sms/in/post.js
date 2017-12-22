@@ -25,10 +25,17 @@ module.exports = [
       const template = fs.readFileSync(path.join(__dirname, '..', '..', '..', '..', 'twiml', 'simpleResponse.xml')).toString()
       switch (bodyArray[0]) {
         case 'admin':
-          message = 'something'
+          switch (bodyArray[1]) {
+            case 'stats':
+              message = 'stats'
+              break
+            default:
+              message = 'oops'
+              break
+          }
           break
         default:
-          message = 'nope'
+          message = 'Nice try!'
           break
       }
       const compiledTemplate = Handlebars.compile(template)({body: message})
