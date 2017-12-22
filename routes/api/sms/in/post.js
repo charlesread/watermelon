@@ -9,7 +9,22 @@ const sms = require('~/lib/sms')
 module.exports = [
   {
     method: 'post',
-    path: '/api/sms/in,
+    path: '/api/sms/in',
+    handler: function (req, reply) {
+      (async function () {
+        console.log(req.payload)
+        reply()
+      })()
+        .catch(function (err) {
+          log.error(err.message)
+          log.debug(err.stack)
+          reply(boom.badRequest())
+        })
+    }
+  },
+  {
+    method: 'get',
+    path: '/api/sms/in',
     handler: function (req, reply) {
       (async function () {
         console.log(req.payload)
