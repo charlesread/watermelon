@@ -14,7 +14,6 @@ module.exports = [
     handler: function (req, reply) {
       log.trace('received request at /api/sms/in, payload: %j', req.payload)
       !async function () {
-        console.log(req.payload)
         reply()
       }()
         .catch(function (err) {
