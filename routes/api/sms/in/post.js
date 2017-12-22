@@ -13,7 +13,7 @@ module.exports = [
     path: '/api/sms/in',
     handler: function (req, reply) {
       log.trace('received request at /api/sms/in, payload: %j', req.payload)
-      const body = req.payload.body
+      const body = req.payload.Body
       const bodyArray = body.split(' ')
       log.debug('body: %j', body)
       log.debug('bodyArray: %j', bodyArray)
