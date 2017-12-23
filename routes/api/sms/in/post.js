@@ -29,7 +29,7 @@ module.exports = [
             switch (bodyArray[1]) {
               case 'stats':
                 const res = await db.query(sql.sms.in.admin.stats.count, [bodyArray[3]])
-                message = res[0].cnt
+                message = res ? res[0].cnt : ':/'
                 break
               default:
                 message = 'oops'
