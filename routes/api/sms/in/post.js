@@ -22,26 +22,26 @@ module.exports = [
       const bodyArray = body.split(' ')
       log.debug('body: %j', body)
       log.debug('bodyArray: %j', bodyArray)
-      const template = fs.readFileSync(path.join(__dirname, '..', '..', '..', '..', 'twiml', 'simpleResponse.xml')).toString()
-      switch (bodyArray[0]) {
-        case 'admin':
-          switch (bodyArray[1]) {
-            case 'stats':
-              const res = db.query(sql.sms.in.admin.stats.count, [bodyArray[2]])
-              message = 123
-              console.log(res)
-              break
-            default:
-              message = 'oops'
-              break
-          }
-          break
-        default:
-          message = 'Nice try!'
-          break
-      }
-      const compiledTemplate = Handlebars.compile(template)({body: message})
       !async function () {
+        const template = fs.readFileSync(path.join(__dirname, '..', '..', '..', '..', 'twiml', 'simpleResponse.xml')).toString()
+        switch (bodyArray[0]) {
+          case 'admin':
+            switch (bodyArray[1]) {
+              case 'stats':
+                const res = await db.query(sql.sms.in.admin.stats.count, [bodyArray[3]])
+                message = 123
+                console.log(res)
+                break
+              default:
+                message = 'oops'
+                break
+            }
+            break
+          default:
+            message = 'Nice try!'
+            break
+        }
+        const compiledTemplate = Handlebars.compile(template)({body: message})
         reply(compiledTemplate).header('Content-Type', 'application/xml')
       }()
         .catch(function (err) {
