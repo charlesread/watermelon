@@ -27,7 +27,9 @@ module.exports = [
         case 'admin':
           switch (bodyArray[1]) {
             case 'stats':
-              message = 'stats'
+              const res = db.query(sql.sms.in.admin.stats.count, [bodyArray[2]])
+              message = 123
+              console.log(res)
               break
             default:
               message = 'oops'
