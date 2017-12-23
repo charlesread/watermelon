@@ -1,9 +1,3 @@
-$(document).ready(function () {
-  $('#buttonLogin').click(function () {
-    window.location.replace('/register');
-  });
-});
-
 function sendPlaceInfo(elem, message) {
   elem.removeClass('btn-outline-info').addClass('btn-outline-warning').html('Sending...');
   $.ajax({
