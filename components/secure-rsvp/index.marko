@@ -61,33 +61,33 @@
 
                         <!--user rsvp person card-->
 
-                        <div class="card">
-                            <h5 class="card-header">
-                                Yippee!  We're glad that you can come, just a few more things:
-                            </h5>
-                            <div class="card-body">
-                                <small class="form-text text-muted">
-                                    This is just for <i>you</i> right now, we'll get to other folks later
-                                </small>
-                                <div class="row">
-                                    <div class="col">
-                                        <rsvp-meal-type-select id="userMealType" mealTypes=input.mealTypes rsvpPerson=input.rsvpPerson></rsvp-meal-type-select>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <input class="form-control" type="text" value="${input.rsvpPerson ? input.rsvpPerson.considerations : ''}" name="userConsiderations" id="userConsiderations" placeholder="Any considerations? Mobility, diet, et cetera."/>
-                                    </div>
-                                </div>
-                                <small id="userRsvpPersonSave">
-                                    <i class="fa fa-floppy-o" aria-hidden="true"></i>
-                                </small>
-                            </div>
-                        </div>
+                        <!--<div class="card">-->
+                            <!--<h5 class="card-header">-->
+                                <!--Yippee!  We're glad that you can come, just a few more things:-->
+                            <!--</h5>-->
+                            <!--<div class="card-body">-->
+                                <!--<small class="form-text text-muted">-->
+                                    <!--This is just for <i>you</i> right now, we'll get to other folks later-->
+                                <!--</small>-->
+                                <!--<div class="row">-->
+                                    <!--<div class="col">-->
+                                        <!--<rsvp-meal-type-select id="userMealType" mealTypes=input.mealTypes rsvpPerson=input.rsvpPerson></rsvp-meal-type-select>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="row">-->
+                                    <!--<div class="col">-->
+                                        <!--<input class="form-control" type="text" value="${input.rsvpPerson ? input.rsvpPerson.considerations : ''}" name="userConsiderations" id="userConsiderations" placeholder="Any considerations? Mobility, diet, et cetera."/>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<small id="userRsvpPersonSave">-->
+                                    <!--<i class="fa fa-floppy-o" aria-hidden="true"></i>-->
+                                <!--</small>-->
+                            <!--</div>-->
+                        <!--</div>-->
 
                         <!--report back and person rsvp person card-->
 
-                        <div class="card ${input.rsvp && input.rsvp.attend === 1 ? '' : 'displayNone'}" id="cardPersonRsvpPerson">
+                        <div class="card" id="cardPersonRsvpPerson">
                             <h5 class="card-header">
                                 Ok, so here's who we have so far:
                             </h5>

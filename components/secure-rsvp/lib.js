@@ -74,9 +74,9 @@ $(document).ready(function () {
       }
     });
   });
-  $('#userMealType').change(function () {
-    persistUserRsvpPerson();
-  });
+  // $('#userMealType').change(function () {
+  //   persistUserRsvpPerson();
+  // });
 });
 
 function refreshRsvpPersons() {
@@ -135,37 +135,37 @@ function refreshRsvpPersons() {
 
 refreshRsvpPersons();
 
-function Scanner(opts, cb) {
-  this._interval = undefined
-  this._lastKeyup = undefined
-  this._elementSelector = opts.elementSelector || 'input'
-  this._threshold = opts.threshold || 500
-  this._cb = cb
-
-  $(this._elementSelector).keyup(function () {
-    this._lastKeyup = new Date();
-    if (!this._interval) {
-      this._interval = setInterval(this._monitor.bind(this), 100);
-    }
-  }.bind(this));
-}
-
-Scanner.prototype._monitor = function () {
-  if ((new Date() - this._lastKeyup) > this._threshold) {
-    this._cb($(this._elementSelector));
-    clearInterval(this._interval);
-    this._interval = undefined;
-  }
-}
-
-var s = new Scanner(
-  {
-    elementSelector: '#userConsiderations'
-  },
-  function () {
-    persistUserRsvpPerson();
-  }
-);
+// function Scanner(opts, cb) {
+//   this._interval = undefined
+//   this._lastKeyup = undefined
+//   this._elementSelector = opts.elementSelector || 'input'
+//   this._threshold = opts.threshold || 500
+//   this._cb = cb
+//
+//   $(this._elementSelector).keyup(function () {
+//     this._lastKeyup = new Date();
+//     if (!this._interval) {
+//       this._interval = setInterval(this._monitor.bind(this), 100);
+//     }
+//   }.bind(this));
+// }
+//
+// Scanner.prototype._monitor = function () {
+//   if ((new Date() - this._lastKeyup) > this._threshold) {
+//     this._cb($(this._elementSelector));
+//     clearInterval(this._interval);
+//     this._interval = undefined;
+//   }
+// }
+//
+// var s = new Scanner(
+//   {
+//     elementSelector: '#userConsiderations'
+//   },
+//   function () {
+//     persistUserRsvpPerson();
+//   }
+// );
 
 function persistUserRsvpPerson() {
   var userMealType = parseInt($('#userMealType').val());
