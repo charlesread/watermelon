@@ -88,3 +88,31 @@
 .modal-body {
     padding-bottom: 0;
 }
+
+#divRsvpPersons table {
+    width: 100%;
+}
+
+#divRsvpPersons table tbody tr td:last-child {
+    white-space: nowrap;
+}
+
+#divRsvpPersons table tbody tr:not(:last-child) {
+    border-bottom: 1px solid #EEEEEE;
+}
+
+#divRsvpPersons table thead th {
+    color: #DDD;
+}
+
+#divRsvpPersons table thead th:not(:first-child) {
+    text-align: center;
+}
+
+#divRsvpPersons table td, #divRsvpPersons table th {
+    padding: 4px 8px;
+}
+
+#divRsvpPersons table td {
+    color: #333;
+}

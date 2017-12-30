@@ -95,7 +95,7 @@ function refreshRsvpPersons() {
                     <td>${v.first_name || ''} ${v.last_name || ''}</td>
                     <td>${v.description || ''}</td>
                     <td>${v.kiddo === 1 ? 'Yep' : ''}</td>
-                    <td>${v.considerations ? v.considerations.substr(0, 15) + '...' : ''}</td>
+                    <td>${v.considerations ? v.considerations.substr(0, 8) + '...' : ''}</td>
                 </tr>
             `);
           });
