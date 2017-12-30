@@ -25,6 +25,10 @@
     border-radius: 3px;
 }
 
+#divRsvpYesNo label {
+    margin: 10px;
+}
+
 #chkbxAttendNo:checked + span {
     border: 1px solid #dc3545;
 }
