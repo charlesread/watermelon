@@ -91,10 +91,11 @@
 
 #divRsvpPersons table {
     width: 100%;
+    font-size: 0.9em;
 }
 
 #divRsvpPersons table tbody tr td:last-child {
-    white-space: nowrap;
+    /*white-space: nowrap;*/
 }
 
 #divRsvpPersons table tbody tr:not(:last-child) {
@@ -105,7 +106,7 @@
     color: #DDD;
 }
 
-#divRsvpPersons table thead th:not(:first-child) {
+#divRsvpPersons table thead th:not(:nth-child(2)):not(:nth-child(5)), #divRsvpPersons table tbody tr td:not(:nth-child(2)):not(:nth-child(5)) {
     text-align: center;
 }
 
@@ -115,4 +116,9 @@
 
 #divRsvpPersons table td {
     color: #333;
+}
+
+.rsvpPersonDelete {
+    color: #dc3545;
+    font-size: 0.9em;
 }

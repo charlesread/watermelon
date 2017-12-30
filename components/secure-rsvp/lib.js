@@ -92,12 +92,37 @@ function refreshRsvpPersons() {
           $.each(rsvpPersons, function (i, v) {
             $('#divRsvpPersons tbody').append(`
                 <tr>
+                    <td>
+                        <i class="fa fa-trash rsvpPersonDelete ${v.user_id ? 'displayNone' : ''}" aria-hidden="true" x-id="${v.id}"></i>
+                    </td>
                     <td>${v.first_name || ''} ${v.last_name || ''}</td>
                     <td>${v.description || ''}</td>
                     <td>${v.kiddo === 1 ? 'Yep' : ''}</td>
-                    <td>${v.considerations ? v.considerations.substr(0, 8) + '...' : ''}</td>
+                    <td data-toggle="tooltip" data-placement="top" title="${v.considerations}">${v.considerations ? v.considerations.substr(0, 8) + '...' : ''}</td>
                 </tr>
             `);
+          });
+          $('.rsvpPersonDelete').click(function (e) {
+            $(this).css('display', 'none');
+            var rsvpPersonId = e.target.attributes['x-id'].value;
+            $.ajax({
+              type: 'delete',
+              url: '/api/rsvpPerson/' + rsvpPersonId,
+              complete: function (xhr) {
+                var status = xhr.status;
+                switch (status) {
+                  case 200:
+                    refreshRsvpPersons();
+                    break;
+                  default:
+                    showAlert($('#alertRsvp'), 'danger', 'Sorry, something bad happened, try again?', 5000);
+                    break;
+                }
+              }
+            });
+          });
+          $(function () {
+            $('[data-toggle="tooltip"]').tooltip();
           });
           break;
         default:
@@ -186,3 +211,7 @@ function flashSave(elem) {
     }
   );
 }
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip();
+});
