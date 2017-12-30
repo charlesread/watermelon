@@ -21,6 +21,9 @@
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <if(!input.user.phone || !input.rsvp)>
+            <badge-alert></badge-alert>
+        </if>
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -32,14 +35,14 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
                     <if(!input.user.phone)>
-                        <span class="badge badge-danger">!</span>
+                        <badge-alert></badge-alert>
                     </if>
                     Mobile Number
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalPhoneManage">
                         <if(!input.user.phone)>
-                            <span class="badge badge-danger">!</span>
+                            <badge-alert></badge-alert>
                         </if>
                         ${input.user.phone ? 'Manage' : 'Add'} your Mobile Number
                     </a>
@@ -48,11 +51,16 @@
                 </div>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">
-                    Manage RSVP (coming soon)
-                </a>
-            </li>
+            <if(input.user.id === 9)>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#modalRsvpManage">
+                        <if(!input.rsvp)>
+                        <badge-alert></badge-alert>
+                        </if>
+                        Manage RSVP
+                    </a>
+                </li>
+            </if>
 
             <li class="nav-item">
                 <a class="nav-link disabled" href="#">

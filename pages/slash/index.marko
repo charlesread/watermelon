@@ -2,9 +2,9 @@
 <include("../layout/template/index.marko", input)>
 <@main>
     <if(input.user)>
-        <secure-container user=input.user rsvp=input.rsvp/>
+        <secure-container user=input.user rsvp=input.rsvp mealTypes=input.mealTypes rsvpPerson=input.rsvpPerson></secure-container>
     </if>
-            <div id="divTop"></div>
+    <div id="divTop"></div>
     <div class="container-fluid thingys">
         <div class="row">
             <div class="col">

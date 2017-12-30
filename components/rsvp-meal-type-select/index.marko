@@ -1,0 +1,8 @@
+<select name="${input.id}" id="${input.id}" class="form-control">
+    <option value="0">-- meal type --</option>
+    <for(mealType in input.mealTypes)>
+        <option value="${mealType.id}" ${input.rsvpPerson && input.rsvpPerson.rsvp_meal_type_id === mealType.id ? 'selected' : '' }>
+            ${mealType.description}
+        </option>
+    </for>
+</select>

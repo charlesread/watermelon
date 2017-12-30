@@ -9,3 +9,82 @@
 #alertPhoneAdd {
     display: none;
 }
+
+#divRsvpYesNo {
+    text-align: center;
+    margin: 1.5em auto;
+}
+
+#divRsvpYesNo input[type=radio] {
+    display: none;
+}
+
+#divRsvpYesNo span {
+    padding: 10px;
+    border: 1px solid #FFFFFF;
+    border-radius: 3px;
+}
+
+#chkbxAttendNo:checked + span {
+    border: 1px solid #dc3545;
+}
+
+#chkbxAttendYes:checked + span {
+    border: 1px solid #28a745;
+}
+
+#divRsvpYesNo #chkbxAttendNo + span {
+    color: #dc3545;
+}
+
+#divRsvpYesNo #chkbxAttendYes + span {
+    color: #28a745;
+}
+
+#alertRsvp {
+    display: none;
+}
+
+#divRsvpNextSteps div#divRsvpNextStepsNo, #divRsvpNextSteps div#divRsvpNextStepsYes {
+    display: none;
+}
+
+/*#divRsvpAdditionals {*/
+/*padding: 10px;*/
+/*}*/
+
+/*@media (max-width: 1000px) {*/
+.col-sm-6, .col-sm-6, .col {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/*}*/
+
+#buttonRsvpAdditionalAdd {
+    /*background-color: #FFFFFF;*/
+}
+
+.card {
+    margin-bottom: 1em;
+}
+
+.save {
+
+}
+
+#userRsvpPersonSave, #personRsvpPersonSave {
+    position: absolute;
+    bottom: 1px;
+    right: 5px;
+    color: #28a745;
+    opacity: 0;
+}
+
+.displayNone {
+    display: none;
+}
+
+.modal-body {
+    padding-bottom: 0;
+}

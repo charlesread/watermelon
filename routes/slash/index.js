@@ -12,30 +12,37 @@ module.exports = [
     handler: function (req, reply) {
       let user
       let rsvp
+      let rsvpPerson
+      let mealTypes
+      let faqs
       (async function () {
         const credentials = req.yar.get('credentials')
         const page = require('~/pages/slash/index.marko')
         if (credentials) {
           log.trace('Logged in, credentials: %j', credentials)
           user = await userUtil.maintainUser(credentials)
-          rsvp = (await db.query(sql.rsvp.get.by.userId, user.id))[0]
           req.yar.set('user', user)
+          rsvp = (await db.query(sql.rsvp.get.by.userId, user.id))[0]
+          rsvpPerson = (await db.query(sql.rsvpPerson.get.by.userId, user.id))[0]
+          faqs = await  db.query(sql.faq.getAll)
+          mealTypes = await db.query(sql.rsvpMealType.getAll)
         } else {
           log.trace('Not logged in')
         }
-        const faqs = await  db.query(sql.faq.getAll)
+        console.log(rsvpPerson)
         reply(page.stream(
           {
-            now: new Date(),
             user,
             rsvp,
-            faqs
+            rsvpPerson,
+            faqs,
+            mealTypes
           }
         ))
       })()
         .catch(function (err) {
           log.error(err.message)
-          log.debug(err.trace)
+          log.debug(err.stack)
         })
     }
   }

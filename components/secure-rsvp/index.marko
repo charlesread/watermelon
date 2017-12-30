@@ -1,116 +1,171 @@
-<div class="row">
-    <div class="col-sm">
-        <if
-                (input.rsvp)>
-        </if>
-        <else>
-            <p>
-                So, about that RSVP, I don't see one for you!
-            </p>
-            <p>
-                <button type="button" class="btn btn-outline-success btn-lg" data-toggle="modal"
-                        data-target="#modalRsvpYes">See you there!
-                </button>
-            </p>
-            <p>
-                <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal"
-                        data-target="#modalRsvpNo">Maybe next time...
-                </button>
-            </p>
-        </else>
-    </div>
-    <!--<div class="col-sm">col-sm</div>-->
-    <!--<div class="col-sm">col-sm</div>-->
-</div>
-
-
 <!-- Modals -->
 
-<!--RSVP Yes-->
-<div class="modal fade" id="modalRsvpYes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<!--RSVP Manage-->
+<div class="modal fade" id="modalRsvpManage" tabindex="-1" role="dialog" aria-labelledby="modalRsvpManageLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
+
+            <!--modal header-->
+
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">That's awesome!</h5>
+                <h5 class="modal-title" id="modalRsvpManageLabel">
+                    Manage RSVP
+                </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+
+            <!--modal body-->
+
             <div class="modal-body">
+
+                <!--coming or not-->
+
+                <div class="alert alert-danger" id="alertRsvp" role="alert"></div>
                 <p>
-                    Just a few small things...
+                    You know that we're doing this whole thing just for you, right? It just wouldn't be the same without
+                    you, so whadaya say?
                 </p>
-                <h5>
-                    Who's coming?
-                </h5>
-                <p>
-                    Well, we know that you are, anybody else?
-                </p>
-                <button type="button" class="btn btn-outline-info">Add a Guest</button>
-                <div id="divAttendees">
-                    <div class="attendee">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" placeholder="First name">
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" placeholder="Last name">
-                            </div>
-                        </div>
+                <div id="divRsvpYesNo">
+                    <label for="chkbxAttendYes">
+                        <input type="radio" name="chkbxAttend" id="chkbxAttendYes" value="1" ${input.rsvp && (input.rsvp.attend== '1') ? 'checked' : ''}/>
+                        <span>
+                            <i class="fa fa-check" aria-hidden="true"></i> Sign me up!
+                        </span>
+                    </label>
+                    <label for="chkbxAttendNo">
+                        <input type="radio" name="chkbxAttend" id="chkbxAttendNo" value="0" ${input.rsvp && (input.rsvp.attend== '0') ? 'checked' : ''}/>
+                        <span>
+                            <i class="fa fa-times" aria-hidden="true"></i> Sorry, maybe next time...
+                        </span>
+                    </label>
+                </div>
+
+                <!--next steps-->
+
+                <div id="divRsvpNextSteps">
+
+                    <!--no-->
+
+                    <div id="divRsvpNextStepsNo"
+                         style="display: ${input.rsvp && (input.rsvp.attend === 0) ? 'block' : 'none'}">
+                        We're so sorry to hear that you can't come! No worries though, we still love you!
                     </div>
 
-                    <div class="attendee">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" placeholder="First name">
+                    <!--yes-->
+
+                    <div id="divRsvpNextStepsYes"
+                         style="display: ${input.rsvp && (input.rsvp.attend === 1) ? 'block' : 'none'}">
+
+                        <!--user rsvp person card-->
+
+                        <div class="card">
+                            <h5 class="card-header">
+                                Yippee!  We're glad that you can come, just a few more things:
+                            </h5>
+                            <div class="card-body">
+                                <small class="form-text text-muted">
+                                    This is just for <i>you</i> right now, we'll get to other folks later
+                                </small>
+                                <div class="row">
+                                    <div class="col">
+                                        <rsvp-meal-type-select id="userMealType" mealTypes=input.mealTypes rsvpPerson=input.rsvpPerson></rsvp-meal-type-select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <input class="form-control" type="text" value="${input.rsvpPerson ? input.rsvpPerson.considerations : ''}" name="userConsiderations" id="userConsiderations" placeholder="Any considerations? Mobility, diet, et cetera."/>
+                                    </div>
+                                </div>
+                                <small id="userRsvpPersonSave">
+                                    <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                                </small>
                             </div>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" placeholder="Last name">
+                        </div>
+
+                        <!--report back and person rsvp person card-->
+
+                        <div class="card ${input.rsvp && input.rsvp.attend === 1 ? '' : 'displayNone'}" id="cardPersonRsvpPerson">
+                            <h5 class="card-header">
+                                Ok, so here's who we have so far:
+                            </h5>
+                            <div class="card-body">
+                                <div id="divRsvpPersons">
+                                    <table class="table-sm">
+                                        <thead>
+                                            <th>
+                                                Guest
+                                            </th>
+                                            <th>
+                                                Meal
+                                            </th>
+                                            <th>
+                                                Kiddo
+                                            </th>
+                                            <th>
+                                                Considerations
+                                            </th>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <strong>
+                                    Bringing anybody else?
+                                </strong>
+                                <div id="divRsvpAdditionalAdd">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" placeholder="First name"
+                                                   id="personFirstName">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" placeholder="Last name"
+                                                   id="personLastName">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <rsvp-meal-type-select id="personMealType" mealTypes=input.mealTypes></rsvp-meal-type-select>
+                                        </div>
+                                        <div class="col-sm-6" style="text-align: center;vertical-align: middle;">
+                                            <input type="checkbox" value="1" name="personKiddo" id="personKiddo">
+                                            <label for="personKiddo">
+                                                &nbsp;This person is a kiddo
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <input class="form-control" type="text" name="personConsiderations" id="personConsiderations" placeholder="Any considerations? Mobility, diet, et cetera."/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <button type="button" class="btn btn-outline-info btn-block"
+                                                    id="buttonRsvpPersonAdd">
+                                                <i class="fa fa-user-plus" aria-hidden="true"></i> Add This Person
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <small id="personRsvpPersonSave">
+                                    <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                                </small>
                             </div>
                         </div>
                     </div>
                 </div>
-                <h5>
-                    Anything we need to know about?
-                </h5>
-                <textarea class="form-control" placeholder="allergies, other needs, stuff like that"></textarea>
-                <h5>
-                    Want text updates?
-                </h5>
-                <p>
-                    Get updates before and stuff like "Fresh pretzels in the courtyard in 5 minutes" during! We promise
-                    we won't blow your phone up.
-                </p>
-                <input type="tel" class="form-control" placeholder="mobile number" name="mobile" id="mobile">
             </div>
 
-            <div class="modal-footer">
-                <button type="button" class="btn btn-outline-warning" data-dismiss="modal">Nevermind</button>
-                <button type="button" class="btn btn-outline-success">I'm done!</button>
-            </div>
-        </div>
-    </div>
-</div>
+            <!--modal footer-->
 
-<!--RSVP No-->
-<div class="modal fade" id="modalRsvpNo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">:(</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                We're so sorry to hear that you can't come! No worries though, we still love you!
-            </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-danger">L8r</button>
-                <button type="button" class="btn btn-outline-success" data-dismiss="modal" data-toggle="modal"
-                        data-target="#modalRsvpYes">Nevermind, I CAN COME!
+                <button type="button" class="btn btn-outline-success" data-dismiss="modal">
+                    I'm done
                 </button>
             </div>
         </div>
