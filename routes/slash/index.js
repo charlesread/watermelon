@@ -19,17 +19,16 @@ module.exports = [
         const credentials = req.yar.get('credentials')
         const page = require('~/pages/slash/index.marko')
         if (credentials) {
-          log.trace('Logged in, credentials: %j', credentials)
+          log.trace('logged in, credentials: %j', credentials)
           user = await userUtil.maintainUser(credentials)
           req.yar.set('user', user)
           rsvp = (await db.query(sql.rsvp.get.by.userId, user.id))[0]
           rsvpPerson = (await db.query(sql.rsvpPerson.get.by.userId, user.id))[0]
-          faqs = await  db.query(sql.faq.getAll)
           mealTypes = await db.query(sql.rsvpMealType.getAll)
         } else {
-          log.trace('Not logged in')
+          log.trace('not logged in')
         }
-        console.log(rsvpPerson)
+        faqs = await  db.query(sql.faq.getAll)
         reply(page.stream(
           {
             user,
