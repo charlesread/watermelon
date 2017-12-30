@@ -89,9 +89,9 @@
     display: none;
 }
 
-.modal-body {
-    padding-bottom: 0;
-}
+/*.modal-body {*/
+    /*padding-bottom: 0;*/
+/*}*/
 
 #divRsvpPersons table {
     width: 100%;
