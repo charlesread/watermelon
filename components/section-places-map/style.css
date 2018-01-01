@@ -1,14 +1,18 @@
-.divPlace {
-    margin: 5px 0px;
-}
+/*.divPlace {*/
+    /*margin: 5px 0px;*/
+/*}*/
 
 .place, .buttonSendToMobile {
     display: block;
 }
 
+.buttonSendToMobile {
+    margin-top: 1em;
+}
+
 .divPlace {
-    float: left;
-    background-color: #fff;
-    padding: 5px;
-    margin: 5px;
+    background-color: #FFFFFF;
+    padding: 1em;
+    border-left: 1px dashed #ccc;
+    /*height: 8em;*/
 }

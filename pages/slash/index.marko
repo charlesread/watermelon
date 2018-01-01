@@ -6,8 +6,8 @@
     </if>
     <div id="divTop"></div>
     <div class="container-fluid thingys">
-        <div class="row">
-            <div class="col">
+        <!--<div class="row">-->
+            <!--<div class="col">-->
                 <section-splash></section-splash>
                 <if(!input.user)>
                     <fb-login></fb-login>
@@ -15,6 +15,7 @@
                 <section-welcome user=input.user></section-welcome>
                 <section-events></section-events>
                 <section-faq faqs=input.faqs></section-faq>
+                <section-places-map></section-places-map>
                 <div class="row">
                     <div class="col" id="colGithub">
                         <a href="https://github.com/charlesread/watermelon" target="_blank">
@@ -22,9 +23,8 @@
                         </a>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!--<section-places-map/>-->
+            <!--</div>-->
+        <!--</div>-->
         <!--<div class="row rowAlternate">-->
             <!--<div class="col" id="colGithub">-->
                 <!--<a href="https://github.com/charlesread/watermelon" target="_blank">-->

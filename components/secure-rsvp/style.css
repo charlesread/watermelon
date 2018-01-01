@@ -60,10 +60,10 @@
 /*}*/
 
 /*@media (max-width: 1000px) {*/
-.col-sm-6, .col-sm-6, .col {
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
+/*.col-sm-6, .col-sm-6, .col {*/
+    /*padding-top: 5px;*/
+    /*padding-bottom: 5px;*/
+/*}*/
 
 /*}*/
 
@@ -183,4 +183,9 @@ hr {
 
 #ttRsvpPerson {
     left: 5em;
+}
+
+.colFull {
+    padding-left: 0;
+    padding-right: 0;
 }

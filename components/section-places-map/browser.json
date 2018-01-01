@@ -1,5 +1,8 @@
 {
   "dependencies": [
+    "../../assets/owl/owl.carousel.min.js",
+    "../../assets/owl/assets/owl.carousel.min.css",
+    "../../assets/owl/assets/owl.theme.green.min.css",
     "./lib.js",
     "./style.css"
   ]

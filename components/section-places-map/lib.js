@@ -1,4 +1,8 @@
-function initMap () {
+$(document).ready(function () {
+  // $('.owl-carousel').owlCarousel();
+});
+
+function initMap() {
   $.ajax({
     url: '/api/place',
     type: 'get',
@@ -30,15 +34,27 @@ function initMap () {
       $.each(locations, function (index, location) {
         let htmlSendToMobile = '<button type="button" class="btn btn-outline-info btn-sm buttonSendToMobile">Send to <i class="fa fa-mobile" aria-hidden="true"></i></button>'
         $('#placeListing').append('<div class="divPlace"><div class="place" x-info="' + location.info + '">' + location.name + '</div>' + ($('#userFirstName').val() ? htmlSendToMobile : '') + '</div>');
-        $('#placeListing div.divPlace:last-child .place').hover(function () {
+        $('#placeListing div.divPlace:last-child').click(function () {
           infowindow.setContent(location.info);
           infowindow.open(map, location.marker);
+          $('html, body').animate({
+            scrollTop: $('#colFull').offset().top
+          }, 200);
         });
         $('#placeListing div.divPlace:last-child button').click(function () {
           infowindow.setContent(location.info);
           infowindow.open(map, location.marker);
           sendPlaceInfo($(this), location.name + '\r' + location.address1 + '\r' + location.address2 + '\r\r' + location.note);
         });
+      });
+      $('.owl-carousel').owlCarousel({
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: true,
+        items: 4,
+        autoWidth:true,
+        dots:true
       });
     }
   });
