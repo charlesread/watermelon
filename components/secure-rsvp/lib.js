@@ -3,9 +3,18 @@ $(document).ready(function () {
     var personFirstName = $('#personFirstName')[0].value;
     var personLastName = $('#personLastName')[0].value;
     var personMealType = parseInt($('#personMealType').val());
-    var personKiddo = $('#personKiddo').prop('checked') ? 1 : 0;
     var personConsiderations = $('#personConsiderations').val();
+    var eventFriday = $('#eventF').prop('checked') ? 1 : 0;
+    var eventSaturday = $('#eventS').prop('checked') ? 1 : 0;
+    var eventSunday = $('#eventU').prop('checked') ? 1 : 0;
+    if (personFirstName.length === 0) {
+      $('#personFirstName').focus();
+      return $('#personFirstName').addClass('is-invalid');
+    } else {
+      $('#personFirstName').removeClass('is-invalid');
+    }
     if (personMealType === 0) {
+      $('#personMealType').focus();
       return $('#personMealType').addClass('is-invalid');
     } else {
       $('#personMealType').removeClass('is-invalid');
@@ -14,8 +23,10 @@ $(document).ready(function () {
       firstName: personFirstName,
       lastName: personLastName,
       mealType: personMealType,
-      kiddo: personKiddo,
-      considerations: personConsiderations
+      considerations: personConsiderations,
+      eventFriday,
+      eventSaturday,
+      eventSunday
     };
     $.ajax({
       type: 'post',
@@ -27,13 +38,24 @@ $(document).ready(function () {
         var status = xhr.status;
         switch (status) {
           case 200:
-            refreshRsvpPersons();
+            refreshRsvpPersons(function () {
+              var ttRsvpPerson = $('#ttRsvpPerson').tooltip({
+                trigger: 'manual'
+              });
+              ttRsvpPerson.tooltip('show');
+              setTimeout(function () {
+                ttRsvpPerson.tooltip('hide');
+                $('#ttRsvpPerson').attr('title', '');
+              }, 3000);
+            });
             $('#personFirstName').val('');
             $('#personLastName').val('');
             $('#personMealType').val(0);
-            $('#personKiddo').prop('checked', false);
             $('#personConsiderations').val('');
-            flashSave('#personRsvpPersonSave');
+            $('#eventF').prop('checked', false);
+            $('#eventS').prop('checked', false);
+            $('#eventU').prop('checked', false);
+            $('#buttonRsvpPersonAdd').html('Add This Person');
             break;
           default:
             showAlert($('#alertRsvp'), 'danger', 'Sorry, something bad happened, try again?', 5000);
@@ -77,9 +99,17 @@ $(document).ready(function () {
   // $('#userMealType').change(function () {
   //   persistUserRsvpPerson();
   // });
+  $('#personFirstName').keyup(function (e) {
+    var val = $(this).val();
+    if (val.length > 3) {
+      $('#buttonRsvpPersonAdd').html('Add ' + val);
+    } else {
+      $('#buttonRsvpPersonAdd').html('Add This Person');
+    }
+  });
 });
 
-function refreshRsvpPersons() {
+function refreshRsvpPersons(cb) {
   $.ajax({
     type: 'get',
     url: '/api/rsvp/by/user/self',
@@ -89,19 +119,34 @@ function refreshRsvpPersons() {
         case 200:
           var rsvpPersons = xhr.responseJSON.rsvpPersons;
           $('#divRsvpPersons tbody').html('');
-          $.each(rsvpPersons, function (i, v) {
-            $('#divRsvpPersons tbody').append(`
+          if (rsvpPersons.length > 0) {
+            $.each(rsvpPersons, function (i, v) {
+              $('#divRsvpPersons tbody').append(`
                 <tr>
                     <td>
                         <i class="fa fa-trash rsvpPersonDelete ${v.user_id ? 'displayNone' : ''}" aria-hidden="true" x-id="${v.id}"></i>
                     </td>
                     <td>${v.first_name || ''} ${v.last_name || ''}</td>
                     <td>${v.description || ''}</td>
-                    <td>${v.kiddo === 1 ? 'Yep' : ''}</td>
+                    <td>${v.event_friday === 1 ? '<i class="fa">&#xf0fc;</i>' : ''}${v.event_saturday === 1 ? '<i class="fa">&#xf004;</i>' : ''}${v.event_sunday === 1 ? '<i class="fa">&#xf072;</i>' : ''}</td>
                     <td data-toggle="tooltip" data-placement="top" title="${v.considerations}">${v.considerations ? v.considerations.substr(0, 8) + '...' : ''}</td>
                 </tr>
             `);
-          });
+            });
+          } else {
+            $('#divRsvpPersons tbody').append(`
+                <tr>
+                    <td colspan="5">
+                        <i>
+                            add people, like yourself, to your RSVP <i class="fa fa-long-arrow-down" aria-hidden="true"></i>
+                        </i>
+                    </td>
+                </tr>
+            `);
+            $('#buttonRsvpPersonAdd').html('Add ' + $('#userFirstName').val() + ' (you)');
+            $('#personFirstName').val($('#userFirstName').val());
+            $('#personLastName').val($('#userLastName').val());
+          }
           $('.rsvpPersonDelete').click(function (e) {
             $(this).css('display', 'none');
             var rsvpPersonId = e.target.attributes['x-id'].value;
@@ -124,6 +169,9 @@ function refreshRsvpPersons() {
           $(function () {
             $('[data-toggle="tooltip"]').tooltip();
           });
+          if (cb) {
+            cb();
+          }
           break;
         default:
           showAlert($('#alertRsvp'), 'danger', 'Sorry, something bad happened, try again?', 5000);
@@ -212,6 +260,8 @@ function flashSave(elem) {
   );
 }
 
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip();
-});
+// $(function () {
+//   $('[data-toggle="tooltip"]').tooltip();
+// });
+
+

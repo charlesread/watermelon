@@ -4,7 +4,7 @@
 <div class="modal fade" id="modalRsvpManage" tabindex="-1" role="dialog" aria-labelledby="modalRsvpManageLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
+         <div class="modal-content">
 
             <!--modal header-->
 
@@ -24,21 +24,19 @@
                 <!--coming or not-->
 
                 <div class="alert alert-danger" id="alertRsvp" role="alert"></div>
-                <p>
-                    You know that we're doing this whole thing just for you, right? It just wouldn't be the same without
-                    you, so whadaya say?
-                </p>
                 <div id="divRsvpYesNo">
                     <label for="chkbxAttendYes">
-                        <input type="radio" name="chkbxAttend" id="chkbxAttendYes" value="1" ${input.rsvp && (input.rsvp.attend== '1') ? 'checked' : ''}/>
+                        <input type="radio" name="chkbxAttend" id="chkbxAttendYes" value="1" ${input.rsvp &&
+                               (input.rsvp.attend== '1') ? 'checked' : ''}/>
                         <span>
-                            <i class="fa fa-check" aria-hidden="true"></i> Sign me up!
+                            Sign me up!
                         </span>
                     </label>
                     <label for="chkbxAttendNo">
-                        <input type="radio" name="chkbxAttend" id="chkbxAttendNo" value="0" ${input.rsvp && (input.rsvp.attend== '0') ? 'checked' : ''}/>
+                        <input type="radio" name="chkbxAttend" id="chkbxAttendNo" value="0" ${input.rsvp &&
+                               (input.rsvp.attend== '0') ? 'checked' : ''}/>
                         <span>
-                            <i class="fa fa-times" aria-hidden="true"></i> Sorry, maybe next time...
+                            Sorry, maybe next time...
                         </span>
                     </label>
                 </div>
@@ -59,121 +57,114 @@
                     <div id="divRsvpNextStepsYes"
                          style="display: ${input.rsvp && (input.rsvp.attend === 1) ? 'block' : 'none'}">
 
-                        <!--user rsvp person card-->
-
-                        <!--<div class="card">-->
-                            <!--<h5 class="card-header">-->
-                                <!--Yippee!  We're glad that you can come, just a few more things:-->
-                            <!--</h5>-->
-                            <!--<div class="card-body">-->
-                                <!--<small class="form-text text-muted">-->
-                                    <!--This is just for <i>you</i> right now, we'll get to other folks later-->
-                                <!--</small>-->
-                                <!--<div class="row">-->
-                                    <!--<div class="col">-->
-                                        <!--<rsvp-meal-type-select id="userMealType" mealTypes=input.mealTypes rsvpPerson=input.rsvpPerson></rsvp-meal-type-select>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                                <!--<div class="row">-->
-                                    <!--<div class="col">-->
-                                        <!--<input class="form-control" type="text" value="${input.rsvpPerson ? input.rsvpPerson.considerations : ''}" name="userConsiderations" id="userConsiderations" placeholder="Any considerations? Mobility, diet, et cetera."/>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                                <!--<small id="userRsvpPersonSave">-->
-                                    <!--<i class="fa fa-floppy-o" aria-hidden="true"></i>-->
-                                <!--</small>-->
-                            <!--</div>-->
-                        <!--</div>-->
-
                         <!--report back and person rsvp person card-->
 
-                        <div class="card" id="cardPersonRsvpPerson">
-                            <h5 class="card-header">
-                                Ok, so here's who we have so far:
+                        <!--<div class="card" id="cardPersonRsvpPerson">-->
+                        <hr/>
+                        <h5>
+                            Yippee!
+                        </h5>
+                        <p>
+                            Just a few more things, so here's who we have so far:
+                        </p>
+                        <!--<div class="card-body">-->
+                        <div id="divRsvpPersons">
+                            <table id="tableRsvpPerson" class="">
+                                <thead>
+                                <th></th>
+                                <th>
+                                    <i class="fa fa-user-o" aria-hidden="true"></i>
+                                </th>
+                                <th>
+                                    <i class="fa fa-spoon" aria-hidden="true"></i>
+                                </th>
+                                <th>
+                                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                                </th>
+                                <th>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </th>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                            <div id="ttRsvpPerson" data-toggle="tooltip" data-placement="bottom" title="Added!"></div>
+                        </div>
+
+
+                        <div id="divRsvpAdditionalAdd">
+                            <hr/>
+                            <h5>
+                                Who's coming to what?
                             </h5>
-                            <div class="card-body">
-                                <div id="divRsvpPersons">
-                                    <table class="">
-                                        <thead>
-                                        <th></th>
-                                        <th>
-                                            <i class="fa fa-user-o" aria-hidden="true"></i>
-                                        </th>
-                                        <th>
-                                            <i class="fa fa-spoon" aria-hidden="true"></i>
-                                        </th>
-                                        <th>
-                                            <i class="fa fa-child" aria-hidden="true"></i>
-                                        </th>
-                                        <th>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <!--Considerations-->
-                                        </th>
-                                        </thead>
-                                        <!--<thead>-->
-                                            <!--<th>-->
-                                                <!--Guest-->
-                                            <!--</th>-->
-                                            <!--<th>-->
-                                                <!--Meal-->
-                                            <!--</th>-->
-                                            <!--<th>-->
-                                                <!--Kiddo-->
-                                            <!--</th>-->
-                                            <!--<th>-->
-                                                <!--Considerations-->
-                                            <!--</th>-->
-                                        <!--</thead>-->
-                                        <tbody></tbody>
-                                    </table>
+                            <!--name row-->
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" placeholder="First name"
+                                           id="personFirstName">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" placeholder="Last name"
+                                           id="personLastName">
                                 </div>
                             </div>
-                            <div class="card-footer">
-                                <strong>
-                                    Bringing anybody else?
-                                </strong>
-                                <div id="divRsvpAdditionalAdd">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <input type="text" class="form-control" placeholder="First name"
-                                                   id="personFirstName">
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <input type="text" class="form-control" placeholder="Last name"
-                                                   id="personLastName">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <rsvp-meal-type-select id="personMealType" mealTypes=input.mealTypes></rsvp-meal-type-select>
-                                        </div>
-                                        <div class="col-sm-6" style="text-align: center;vertical-align: middle;">
-                                            <input type="checkbox" value="1" name="personKiddo" id="personKiddo">
-                                            <label for="personKiddo">
-                                                &nbsp;This person is a kiddo
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <input class="form-control" type="text" name="personConsiderations" id="personConsiderations" placeholder="Any considerations? Mobility, diet, et cetera."/>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <button type="button" class="btn btn-outline-info btn-block"
-                                                    id="buttonRsvpPersonAdd">
-                                                <i class="fa fa-user-plus" aria-hidden="true"></i> Add This Person
-                                            </button>
-                                        </div>
+                            <!--event row-->
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="divEventCheckbox">
+                                        <label>
+                                            <input type="checkbox" class="eventCheckbox" id="eventF" value="1">
+                                            <span class="btn btn-light btn-block" data-toggle="tooltip" data-placement="bottom" title="Welcome to Atlanta!  Come hang with us at one of our favorite breweries!">
+                                                Friday
+                                            </span>
+                                        </label>
                                     </div>
                                 </div>
-                                <small id="personRsvpPersonSave">
-                                    <i class="fa fa-floppy-o" aria-hidden="true"></i>
-                                </small>
+                                <div class="col-sm">
+                                    <div class="divEventCheckbox">
+                                        <label>
+                                            <input type="checkbox" class="eventCheckbox" id="eventS" value="1">
+                                            <span class="btn btn-light btn-block" data-toggle="tooltip" data-placement="bottom" title="The meat and potatoes, come celebrate with us!">
+                                                Saturday
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="divEventCheckbox">
+                                        <label>
+                                            <input type="checkbox" class="eventCheckbox" id="eventU" value="1">
+                                            <span class="btn btn-light btn-block" data-toggle="tooltip" data-placement="bottom" title="The send-off brunch, let's meet up so that we can thank you for taking part in our big day!">
+                                                Sunday
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--meal type and cnsiderations row-->
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <rsvp-meal-type-select id="personMealType"
+                                                           mealTypes=input.mealTypes></rsvp-meal-type-select>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input class="form-control" type="text" name="personConsiderations"
+                                           id="personConsiderations"
+                                           placeholder="Comments?"/>
+                                </div>
+                            </div>
+                            <!--button row-->
+                            <div class="row">
+                                <div class="col">
+                                    <button type="button" class="btn btn-outline-info btn-block"
+                                            id="buttonRsvpPersonAdd">
+                                        Add This Person
+                                    </button>
+                                </div>
                             </div>
                         </div>
+                        <!--</div>-->
                     </div>
+
                 </div>
             </div>
 
@@ -184,6 +175,7 @@
                     I'm done
                 </button>
             </div>
+
         </div>
     </div>
 </div>

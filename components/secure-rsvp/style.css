@@ -22,7 +22,7 @@
 #divRsvpYesNo span {
     padding: 10px;
     border: 1px solid #FFFFFF;
-    border-radius: 3px;
+    border-radius: 0.25rem;
 }
 
 #divRsvpYesNo label {
@@ -39,10 +39,12 @@
 
 #divRsvpYesNo #chkbxAttendNo + span {
     color: #dc3545;
+
 }
 
 #divRsvpYesNo #chkbxAttendYes + span {
     color: #28a745;
+
 }
 
 #alertRsvp {
@@ -77,13 +79,13 @@
 
 }
 
-#userRsvpPersonSave, #personRsvpPersonSave {
-    position: absolute;
-    bottom: 1px;
-    right: 5px;
-    color: #28a745;
-    opacity: 0;
-}
+/*#userRsvpPersonSave, #personRsvpPersonSave {*/
+    /*position: absolute;*/
+    /*bottom: 1px;*/
+    /*right: 5px;*/
+    /*color: #28a745;*/
+    /*opacity: 0;*/
+/*}*/
 
 .displayNone {
     display: none;
@@ -125,4 +127,60 @@
 .rsvpPersonDelete {
     color: #dc3545;
     font-size: 0.9em;
+}
+
+/*event "buttons"*/
+
+.divEventCheckbox {
+    position: relative;
+}
+
+.divEventCheckbox label {
+    display: block;
+    margin: 5px auto;
+}
+
+.eventCheckbox {
+    display: none;
+}
+
+.eventCheckbox+span:before, #divRsvpYesNo label span:before {
+    font-family: 'FontAwesome';
+    /*font-style: normal;*/
+    /*font-weight: normal;*/
+    /*text-decoration: inherit;*/
+    margin-right: 10px;
+}
+
+.eventCheckbox:checked+span:before {
+    content: '\f058';
+    color: #28a745;
+}
+
+.eventCheckbox:not(:checked)+span:before {
+    content: '\f057';
+    color: #dc3545;
+}
+
+hr {
+    border-top: 1px dashed #eee;
+    background-color: #fff;
+}
+
+#divRsvpPersons td:nth-child(4) .fa {
+    color: #ddd;
+    margin: auto 2px;
+}
+
+
+#alertPersonAdd {
+    display: none;
+}
+
+.modal[class*="modal"] {
+    transition: height 4s;
+}
+
+#ttRsvpPerson {
+    left: 5em;
 }

@@ -1,0 +1,14 @@
+.divPlace {
+    margin: 5px 0px;
+}
+
+.place, .buttonSendToMobile {
+    display: block;
+}
+
+.divPlace {
+    float: left;
+    background-color: #fff;
+    padding: 5px;
+    margin: 5px;
+}
