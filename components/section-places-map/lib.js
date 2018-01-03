@@ -47,14 +47,18 @@ function initMap() {
           sendPlaceInfo($(this), location.name + '\r' + location.address1 + '\r' + location.address2 + '\r\r' + location.note);
         });
       });
-      $('.owl-carousel').owlCarousel({
+      var owl = $('.owl-carousel')
+      owl.owlCarousel({
         loop: true,
         autoplay: true,
         autoplayTimeout: 3000,
         autoplayHoverPause: true,
         items: 4,
-        autoWidth:true,
-        dots:true
+        autoWidth: true,
+        dots: true
+      });
+      owl.on('changed.owl.carousel', function (p) {
+        console.log(p);
       });
     }
   });
