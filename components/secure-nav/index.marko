@@ -68,10 +68,19 @@
                 </a>
             </li>
 
+            <if(input.user)>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">
+                        Logout
+                    </a>
+                </li>
+            </if>
+
         </ul>
 
         <span class="navbar-text" data-toggle="tooltip" data-placement="bottom" title="Nothing to see here, just saying 'hey', carry on.">
                 Hey, ${input.user.first_name}!
         </span>
+
     </div>
 </nav>
