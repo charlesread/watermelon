@@ -12,7 +12,7 @@ module.exports = [
     method: 'post',
     path: '/api/rsvpPerson',
     config: {
-      auth: 'facebook'
+      auth: 'auth0'
     },
     handler: async function (req) {
       try {

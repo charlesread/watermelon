@@ -12,7 +12,7 @@ module.exports = [
     method: 'delete',
     path: '/api/rsvpPerson/{id}',
     config: {
-      auth: 'facebook'
+      auth: 'auth0'
     },
     handler: async function (req) {
       const user = req.yar.get('user')

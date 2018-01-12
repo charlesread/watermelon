@@ -4,6 +4,7 @@ const db = require('~/lib/db')
 const sql = require('~/lib/sql')
 const userUtil = require('~/util/user')
 const log = require('~/lib/logger')()
+const boom = require('boom')
 
 module.exports = [
   {

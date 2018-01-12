@@ -11,7 +11,7 @@ module.exports = [
     method: 'get',
     path: '/api/rsvp/by/user/{id}',
     config: {
-      auth: 'facebook'
+      auth: 'auth0'
     },
     handler: async function (req) {
       try {
@@ -33,7 +33,7 @@ module.exports = [
     method: 'get',
     path: '/api/rsvp/by/user/self',
     config: {
-      auth: 'facebook'
+      auth: 'auth0'
     },
     handler: async function (req) {
       try {

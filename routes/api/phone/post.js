@@ -12,7 +12,7 @@ module.exports = [
     method: 'post',
     path: '/api/phone',
     config: {
-      auth: 'facebook'
+      auth: 'auth0'
     },
     handler: async function (req) {
       log.trace('/api/phone handler called')

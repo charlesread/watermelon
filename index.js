@@ -11,8 +11,8 @@ const hmlsOptions = config.hmls
 
 const plugins = [
   {
-    plugin: require('hapi-auth-fb'),
-    options: config.hapiAuthFb
+    plugin: require('hapi-auth-auth0'),
+    options: config.hapiAuthAuth0
   }
 ]
 
@@ -21,7 +21,7 @@ const vc = new HMLS(hmlsOptions)
 !async function () {
   await vc.init()
   await vc.server.register(plugins)
-  vc.server.auth.strategy('facebook', 'facebook')
+  vc.server.auth.strategy('auth0', 'auth0')
   await vc.start()
   if (process.send) {
     process.send('online');
