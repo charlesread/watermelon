@@ -15,6 +15,7 @@
     "hapi-auth-auth0": "^0.1.1",
     "hmls": "^2.0.2",
     "ip": "^1.1.5",
+    "lasso": "^3.0.0",
     "mysql": "^2.15.0",
     "pino": "^4.10.2",
     "require-self-ref": "^2.0.1",

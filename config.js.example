@@ -11,12 +11,13 @@ module.exports = {
       port: 8000
     }
   },
-  hapiAuthFb: {
+  hapiAuthAuth0: {
     credentialsName: '',
-    version: '2.11',
+    domain: '',
     client_id: '',
     client_secret: '',
     loginSuccessRedirectPath: '/',
+    handlerPath: '',
     yar: {
       name: '',
       cookieOptions: {
@@ -26,7 +27,8 @@ module.exports = {
     }
   },
   db: {
-    host: 'apps.charlesread.com',
+    connectionLimit: 20,
+    host: '',
     user: '',
     password: '',
     database: ''
