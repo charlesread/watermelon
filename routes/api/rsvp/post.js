@@ -14,10 +14,10 @@ module.exports = [
     config: {
       auth: 'facebook'
     },
-    handler: function (req, reply) {
-      let res
-      const user = req.yar.get('user')
-      !async function () {
+    handler: async function (req) {
+      try {
+        let res
+        const user = req.yar.get('user')
         const payload = req.payload
         let rsvp = (await db.query(sql.rsvp.get.by.userId, [user.id]))[0]
         if (rsvp) {
@@ -30,12 +30,12 @@ module.exports = [
         //   rsvp = (await db.query(sql.rsvp.get.by.userId, [user.id]))[0]
         //   await db.query(sql.rsvpPerson.insert, [rsvp.id, user.first_name, user.last_name, user.id, null, null, null])
         // }
-        reply()
-      }()
-        .catch(function (err) {
-          console.error(err.message)
-          reply(boom.badRequest())
-        })
+        return true
+      } catch (err) {
+        log.error(err.message)
+        log.debug(err.stack)
+        return boom.badRequest()
+      }
     }
   }
 ]

@@ -14,18 +14,17 @@ module.exports = [
     config: {
       auth: 'facebook'
     },
-    handler: function (req, reply) {
-      !async function () {
+    handler: async function (req) {
+      try {
         const user = req.yar.get('user')
         const payload = req.payload
         await db.query(sql.rsvpPerson.update, [payload.mealType, payload.considerations, user.id])
-        reply()
-      }()
-        .catch(function (err) {
-          log.error(err.message)
-          log.debug(err.stack)
-          reply(boom.badRequest())
-        })
+        return true
+      } catch (err) {
+        log.error(err.message)
+        log.debug(err.stack)
+        return boom.badRequest()
+      }
     }
   }
 ]

@@ -7,8 +7,8 @@ module.exports = [
     config: {
       auth: 'facebook'
     },
-    handler: function (req, reply) {
-      reply()
+    handler: async function (req, h) {
+      return true
     }
   }
 ]

@@ -4,6 +4,7 @@ const boom = require('boom')
 
 const db = require('~/lib/db')
 const sql = require('~/lib/sql')
+const log = require('~/lib/logger')()
 
 module.exports = [
   {
@@ -12,20 +13,20 @@ module.exports = [
     config: {
       auth: 'facebook'
     },
-    handler: function (req, reply) {
-      const user = req.yar.get('user')
-      !async function () {
+    handler: async function (req) {
+      try {
+        const user = req.yar.get('user')
         const rsvp = (await db.query(sql.rsvp.get.by.userId, [user.id]))[0] || {}
         const rsvpPersons = await db.query(sql.rsvpPerson.get.by.rsvpUserId, [user.id])
-        reply({
+        return {
           rsvp,
           rsvpPersons
-        })
-      }()
-        .catch(function (err) {
-          console.error(err.message)
-          reply(boom.badRequest())
-        })
+        }
+      } catch (err) {
+        log.error(err.message)
+        log.debug(err.stack)
+        return boom.badRequest()
+      }
     }
   },
   {
@@ -34,20 +35,20 @@ module.exports = [
     config: {
       auth: 'facebook'
     },
-    handler: function (req, reply) {
-      const user = req.yar.get('user')
-      !async function () {
+    handler: async function (req) {
+      try {
+        const user = req.yar.get('user')
         const rsvp = (await db.query(sql.rsvp.get.by.userId, [user.id]))[0] || {}
         const rsvpPersons = await db.query(sql.rsvpPerson.get.by.rsvpUserId, [user.id])
-        reply({
+        return {
           rsvp,
           rsvpPersons
-        })
-      }()
-        .catch(function (err) {
-          console.error(err.message)
-          reply(boom.badRequest())
-        })
+        }
+      } catch (err) {
+        log.error(err.message)
+        log.debug(err.stack)
+        return boom.badRequest()
+      }
     }
   }
 ]

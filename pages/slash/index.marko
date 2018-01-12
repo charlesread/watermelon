@@ -15,7 +15,7 @@
                 <section-welcome user=input.user></section-welcome>
                 <section-events></section-events>
                 <section-faq faqs=input.faqs></section-faq>
-                <!--<section-places-map></section-places-map>-->
+                <section-places-map></section-places-map>
                 <div class="row">
                     <div class="col" id="colGithub">
                         <a href="https://github.com/charlesread/watermelon" target="_blank">
@@ -35,5 +35,8 @@
     </div>
     <input type="hidden" value="${input.user ? input.user.first_name : ''}" id="userFirstName"/>
     <input type="hidden" value="${input.user ? input.user.last_name: ''}" id="userLastName"/>
+    <div class="polaroid box effect1">
+        <img src="/assets/polaroids/rambla_lg.jpg">
+    </div>
 </@main>
 </include>

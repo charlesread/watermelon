@@ -9,13 +9,13 @@ module.exports = [
   {
     method: 'get',
     path: '/',
-    handler: function (req, reply) {
-      let user
-      let rsvp
-      let rsvpPerson
-      let mealTypes
-      let faqs
-      (async function () {
+    handler: async function (req, h) {
+      try {
+        let user
+        let rsvp
+        let rsvpPerson
+        let mealTypes
+        let faqs
         const credentials = req.yar.get('credentials')
         const page = require('~/pages/slash/index.marko')
         if (credentials) {
@@ -28,8 +28,8 @@ module.exports = [
         } else {
           log.trace('not logged in')
         }
-        faqs = await  db.query(sql.faq.getAll)
-        reply(page.stream(
+        faqs = await db.query(sql.faq.getAll)
+        return page.stream(
           {
             user,
             rsvp,
@@ -37,12 +37,12 @@ module.exports = [
             faqs,
             mealTypes
           }
-        ))
-      })()
-        .catch(function (err) {
-          log.error(err.message)
-          log.debug(err.stack)
-        })
+        )
+      } catch (err) {
+        log.error(err.message)
+        log.debug(err.stack)
+        return boom.internal()
+      }
     }
   }
 ]

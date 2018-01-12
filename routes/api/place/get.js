@@ -4,14 +4,15 @@ const boom = require('boom')
 
 const db = require('~/lib/db')
 const sql = require('~/lib/sql')
-const sms = require('~/lib/sms')
+const log = require('~/lib/logger')()
+
 
 module.exports = [
   {
     method: 'get',
     path: '/api/place',
-    handler: function (req, reply) {
-      (async function () {
+    handler: async function () {
+      try {
         const places = []
         const results = await db.query(sql.place.getAll)
         for (let i = 0; i < results.length; i++) {
@@ -26,12 +27,12 @@ module.exports = [
             note: results[i].note
           })
         }
-        reply({places})
-      })()
-        .catch(function (err) {
-          console.error(err.message)
-          reply(boom.badRequest())
-        })
+        return {places}
+      } catch (err) {
+        log.error(err.message)
+        log.debug(err.stack)
+        return boom.badRequest()
+      }
     }
   }
 ]

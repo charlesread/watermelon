@@ -1,3 +1,7 @@
+main {
+    background-color: #eee;
+}
+
 .container-fluid a {
     text-decoration: none;
     color: #333;
@@ -21,6 +25,10 @@
     opacity: 0.5;
 }
 
+.row {
+    background-color: #eee;
+}
+
 .rowAlternate {
     background-color: #ddd;
 }
@@ -38,6 +46,7 @@
     font-style: normal;
     font-weight: normal;
     text-decoration: inherit;
+    font-size: 0.75em;
     color: #ff9f6f;
     opacity: 0.30;
     right: 20px;
@@ -54,7 +63,7 @@
 }
 
 /*.sectionHeader.sectionDecoration:not([x-hide-decoration='true'])::after {*/
-    /*content: "\f0a3";*/
+/*content: "\f0a3";*/
 /*}*/
 
 .sectionHeader.sectionDecorationSaturday::after {
@@ -68,8 +77,6 @@
 .sectionHeader.sectionDecorationSunday::after {
     content: "\f072";
 }
-
-
 
 .sectionBody {
     padding-bottom: 0.75em;
@@ -85,7 +92,7 @@
     padding: 20px;
 }
 
-#colGithub a{
+#colGithub a {
     border: none;
 }
 
@@ -150,8 +157,15 @@ h2 {
     .cnsElementLarge {
         display: block;
     }
+
     .rowEvents {
         text-align: left;
+    }
+}
+
+@media (max-width: 1200px) {
+    .polaroid {
+        display: none;
     }
 }
 
@@ -159,6 +173,7 @@ h2 {
     .cnsElementLarge {
         display: block;
     }
+
     .rowEvents {
         text-align: center;
     }
@@ -275,3 +290,30 @@ h2 {
 }
 
 /*/FB*/
+
+/*polaroids*/
+
+.polaroid {
+    position: absolute;
+    width: 340px;
+    height: 400px;
+    top: 150px;
+    right: 100px;
+    background-color: #FFFFFF;
+    padding: 20px;
+    padding-bottom: 80px;
+    transform: rotate(1deg);
+}
+
+.polaroid img {
+    width: 300px;
+    height: 300px;
+}
+
+.effect1 {
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+    box-shadow: 0 10px 6px -6px #777;
+}
+
+/*end polaroids*/

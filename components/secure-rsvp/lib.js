@@ -19,6 +19,11 @@ $(document).ready(function () {
     } else {
       $('#personMealType').removeClass('is-invalid');
     }
+    if (eventFriday === 0 && eventSaturday === 0 && eventSunday === 0) {
+      if (!confirm('So you didn\'t indicate...')) {
+        return
+      }
+    }
     var payload = {
       firstName: personFirstName,
       lastName: personLastName,
