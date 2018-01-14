@@ -24,7 +24,9 @@ module.exports = [
             address2: results[i].address2,
             lat: results[i].lat,
             long: results[i].long,
-            note: results[i].note
+            note: results[i].note,
+            types: results[i].types ? results[i].types.split(', ') : [],
+            typesString: results[i].types || ''
           })
         }
         return {places}

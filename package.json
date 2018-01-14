@@ -18,6 +18,7 @@
     "lasso": "^3.0.0",
     "mysql": "^2.15.0",
     "pino": "^4.10.2",
+    "randomatic": "^3.0.0",
     "require-self-ref": "^2.0.1",
     "twilio": "^3.10.1"
   },
@@ -25,4 +26,3 @@
     "browser-refresh-taglib": "^1.1.0"
   }
 }
-
