@@ -15,7 +15,7 @@ module.exports = [
   {
     method: 'post',
     path: '/api/sms/in',
-    handler: async function (req) {
+    handler: async function (req, h) {
       let message
       log.trace('received request at /api/sms/in, payload: %j', req.payload)
       const body = req.payload.Body.toLowerCase()
