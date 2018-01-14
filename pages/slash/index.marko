@@ -13,7 +13,9 @@
     </if>
     <section-welcome user=input.user></section-welcome>
     <section-events></section-events>
-    <section-faq faqs=input.faqs></section-faq>
+    <if(input.user)>
+        <section-faq faqs=input.faqs></section-faq>
+    </if>
     <section-places-map></section-places-map>
     <div class="row">
         <div class="col" id="colGithub">
