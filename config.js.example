@@ -17,14 +17,18 @@ module.exports = {
     client_id: '',
     client_secret: '',
     loginSuccessRedirectPath: '/',
-    handlerPath: '',
+    handlerPath: '/callback',
     yar: {
+      // this is kind of bootleg, catbox's backends aren't kosher with yar 10 yet, booooo, so no legit server-side :(
+      maxCookieSize: 1024 * 10,
+      storeBlank: false,
       name: '',
       cookieOptions: {
         password: '',
         ttl: 31536000000
       }
-    }
+    },
+    appUrl: ''
   },
   db: {
     connectionLimit: 20,
