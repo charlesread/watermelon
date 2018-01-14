@@ -1,5 +1,3 @@
-var socket = io();
-
 function showAlert(elem, type, message, dismissTime) {
   elem.hide();
   elem.html(message || 'Oops, sorry, something went wrong.');
