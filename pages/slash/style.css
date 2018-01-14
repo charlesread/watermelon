@@ -167,6 +167,9 @@ h2 {
     .polaroid {
         display: none;
     }
+    .mobileHide {
+        display: none;
+    }
 }
 
 @media (min-width: 1000px) {

@@ -18,3 +18,9 @@
 .faq {
     padding: 7px 0 7px 0;
 }
+
+.registryOption {
+    margin-top: 2em;
+    padding-top: 1em;
+    border-top: 1px #DDD dashed;
+}
