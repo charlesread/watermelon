@@ -41,7 +41,7 @@ module.exports = [
             break
         }
         const compiledTemplate = Handlebars.compile(template)({body: message})
-        const response = r.response(compiledTemplate)
+        const response = h.response(compiledTemplate)
         response.header('Content-Type', 'application/xml')
         return response.takeover()
       } catch (err) {
