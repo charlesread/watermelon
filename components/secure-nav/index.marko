@@ -63,24 +63,31 @@
             </if>
 
             <li class="nav-item">
-                <a class="nav-link disabled" href="#">
-                    Wedding-related Memes (coming soon)
+                <a class="nav-link" href="#" id="navRegistry">
+                    Registry
                 </a>
             </li>
 
-            <if(input.user)>
-                <li class="nav-item">
-                    <a class="nav-link" href="/logout">
-                        Logout
-                    </a>
-                </li>
-            </if>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">
+                    Lodging
+                </a>
+            </li>
 
         </ul>
 
         <span class="navbar-text" data-toggle="tooltip" data-placement="bottom" title="Nothing to see here, just saying 'hey', carry on.">
                 Hey, ${input.user.first_name}!
         </span>
+
+        <if(input.user)>
+            <span class="navbar-text">
+                &nbsp;
+                <a href="/logout" class="nav-item">
+                    Logout
+                </a>
+            </span>
+        </if>
 
     </div>
 </nav>
