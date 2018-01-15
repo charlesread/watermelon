@@ -1,9 +1,26 @@
-$('#navRegistry').click(function () {
-  $('.navbar-collapse').collapse('hide');
-  $('#faqItem22').collapse('show');
+function doScroll(id) {
   $('html, body').animate(
     {
-      scrollTop: ($('#divRegistry').offset().top) - 110
+      scrollTop: ($('div.faq[x-id="' + id + '"] div.collapse').offset().top) - 110
     },
-    200);
+    200
+  );
+}
+
+function openAccordianId(id) {
+  $('.navbar-collapse').collapse('hide');
+  var acc = $('div.faq[x-id="' + id + '"] div.collapse');
+  acc.on('shown.bs.collapse', function () {
+    doScroll(id)
+  });
+  acc.collapse('show');
+  doScroll(id);
+}
+
+$('#navRegistry').click(function () {
+  openAccordianId(22);
+});
+
+$('#navLodging').click(function () {
+  openAccordianId(13);
 });
