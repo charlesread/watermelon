@@ -11,15 +11,22 @@ module.exports = {
       port: 8000
     }
   },
+  hapiAclAuth: {
+    policy: 'allow',
+    exempt: ['/callback'],
+    hierarchy: ['user', 'admin', 'superuser'],
+    handler: async function (req) {
+      return req.yar.get('user')
+    }
+  },
   hapiAuthAuth0: {
     credentialsName: '',
     domain: '',
     client_id: '',
     client_secret: '',
+    handlerPath: '',
     loginSuccessRedirectPath: '/',
-    handlerPath: '/callback',
     yar: {
-      // this is kind of bootleg, catbox's backends aren't kosher with yar 10 yet, booooo, so no legit server-side :(
       maxCookieSize: 1024 * 10,
       storeBlank: false,
       name: '',
@@ -28,7 +35,14 @@ module.exports = {
         ttl: 31536000000
       }
     },
-    appUrl: ''
+    appUrl: 'http://localhost:8000'
+    ,
+    success: async function(credentials, req, h) {
+      const userUtil = require('~/util/user')
+      const user = await userUtil.maintainUser(credentials)
+      req.yar.set('user', user)
+      return true
+    }
   },
   db: {
     connectionLimit: 20,

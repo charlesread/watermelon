@@ -14,6 +14,10 @@ const plugins = [
     // plugin: require('../hapi-auth-auth0'),
     plugin: require('hapi-auth-auth0'),
     options: config.hapiAuthAuth0
+  },
+  {
+    plugin: require('hapi-acl-auth'),
+    options: config.hapiAclAuth
   }
 ]
 
