@@ -11,8 +11,8 @@ const hmlsOptions = config.hmls
 
 const plugins = [
   {
-    plugin: require('../hapi-auth-auth0'),
-    // plugin: require('hapi-auth-auth0'),
+    // plugin: require('../hapi-auth-auth0'),
+    plugin: require('hapi-auth-auth0'),
     options: config.hapiAuthAuth0
   }
 ]
