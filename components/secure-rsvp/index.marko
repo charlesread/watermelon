@@ -75,9 +75,9 @@
                                 <th>
                                     <i class="fa fa-user-o" aria-hidden="true"></i>
                                 </th>
-                                <th>
-                                    <i class="fa fa-spoon" aria-hidden="true"></i>
-                                </th>
+                                <!--<th>-->
+                                    <!--<i class="fa fa-spoon" aria-hidden="true"></i>-->
+                                <!--</th>-->
                                 <th>
                                     <i class="fa fa-calendar" aria-hidden="true"></i>
                                 </th>
@@ -108,7 +108,7 @@
                                 </div>
                             </div>
                             <!--event row-->
-                            <div class="row">
+                            <div class="row eventRow">
                                 <div class="col-sm">
                                     <div class="divEventCheckbox">
                                         <label>
@@ -142,21 +142,21 @@
                             </div>
                             <!--meal type and cnsiderations row-->
                             <div class="row">
-                                <div class="col-sm-6">
-                                    <rsvp-meal-type-select id="personMealType"
-                                                           mealTypes=input.mealTypes></rsvp-meal-type-select>
-                                </div>
-                                <div class="col-sm-6">
-                                    <input class="form-control" type="text" name="personConsiderations"
+                                <!--<div class="col-sm-6">-->
+                                    <!--<rsvp-meal-type-select id="personMealType"-->
+                                                           <!--mealTypes=input.mealTypes></rsvp-meal-type-select>-->
+                                <!--</div>-->
+                                <div class="col-sm">
+                                    <textarea class="form-control" type="text" name="personConsiderations"
                                            id="personConsiderations"
-                                           placeholder="Comments?"/>
+                                              placeholder="Dietary considerations? Comments?"></textarea>
                                 </div>
                             </div>
                             <!--button row-->
                             <div class="row">
                                 <div class="col">
                                     <button type="button" class="btn btn-outline-info btn-block"
-                                            id="buttonRsvpPersonAdd">
+                                            id="buttonRsvpPersonAdd" data-toggle="confirmation">
                                         Add This Person
                                     </button>
                                 </div>

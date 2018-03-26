@@ -1,8 +1,13 @@
 $(document).ready(function () {
+  // var confirmationPopup = $('[data-toggle=confirmation]').confirmation({
+  //   rootSelector: '[data-toggle=confirmation]',
+  //   // other options
+  // });
+
   $('#buttonRsvpPersonAdd').click(function () {
     var personFirstName = $('#personFirstName')[0].value;
     var personLastName = $('#personLastName')[0].value;
-    var personMealType = parseInt($('#personMealType').val());
+    var personMealType = {};
     var personConsiderations = $('#personConsiderations').val();
     var eventFriday = $('#eventF').prop('checked') ? 1 : 0;
     var eventSaturday = $('#eventS').prop('checked') ? 1 : 0;
@@ -13,17 +18,23 @@ $(document).ready(function () {
     } else {
       $('#personFirstName').removeClass('is-invalid');
     }
-    if (personMealType === 0) {
-      $('#personMealType').focus();
-      return $('#personMealType').addClass('is-invalid');
-    } else {
-      $('#personMealType').removeClass('is-invalid');
-    }
-    // if (eventFriday === 0 && eventSaturday === 0 && eventSunday === 0) {
-    //   if (!confirm('So you didn\'t indicate...')) {
-    //     return
-    //   }
+    // if (personMealType === 0) {
+    //   $('#personMealType').focus();
+    //   return $('#personMealType').addClass('is-invalid');
+    // } else {
+    //   $('#personMealType').removeClass('is-invalid');
     // }
+    if (eventFriday === 0 && eventSaturday === 0 && eventSunday === 0) {
+      $('.eventRow').addClass('badEventRow');
+      return;
+      // console.dir(confirmationPopup);
+      // confirmationPopup.confirmation('show');
+      // return false;
+      // if (!confirm('So you didn\'t indicate that you were coming to anything?  Are you sure?')) {
+      //
+      //   return
+      // }
+    }
     var payload = {
       firstName: personFirstName,
       lastName: personLastName,
@@ -55,7 +66,7 @@ $(document).ready(function () {
             });
             $('#personFirstName').val('');
             $('#personLastName').val('');
-            $('#personMealType').val(0);
+            // $('#personMealType').val(0);
             $('#personConsiderations').val('');
             $('#eventF').prop('checked', false);
             $('#eventS').prop('checked', false);
@@ -63,6 +74,7 @@ $(document).ready(function () {
             $('#buttonRsvpPersonAdd').html('Add This Person');
             break;
           default:
+            console.error(xhr.responseJSON.message);
             showAlert($('#alertRsvp'), 'danger', 'Sorry, something bad happened, try again?', 5000);
             break;
         }
@@ -112,6 +124,16 @@ $(document).ready(function () {
       $('#buttonRsvpPersonAdd').html('Add This Person');
     }
   });
+
+  $('.eventCheckbox').change(function () {
+    var eventFriday = $('#eventF').prop('checked') ? 1 : 0;
+    var eventSaturday = $('#eventS').prop('checked') ? 1 : 0;
+    var eventSunday = $('#eventU').prop('checked') ? 1 : 0;
+    if (eventFriday === 1 || eventSaturday === 1 || eventSunday === 1) {
+      $('.eventRow').removeClass('badEventRow');
+    }
+  });
+
 });
 
 function refreshRsvpPersons(cb) {
@@ -132,7 +154,7 @@ function refreshRsvpPersons(cb) {
                         <i class="fa fa-trash rsvpPersonDelete ${v.user_id ? 'displayNone' : ''}" aria-hidden="true" x-id="${v.id}"></i>
                     </td>
                     <td>${v.first_name || ''} ${v.last_name || ''}</td>
-                    <td>${v.description || ''}</td>
+                    <!--<td>${v.description || ''}</td>-->
                     <td>${v.event_friday === 1 ? '<i class="fa">&#xf0fc;</i>' : ''}${v.event_saturday === 1 ? '<i class="fa">&#xf004;</i>' : ''}${v.event_sunday === 1 ? '<i class="fa">&#xf072;</i>' : ''}</td>
                     <td data-toggle="tooltip" data-placement="top" title="${v.considerations}">${v.considerations ? v.considerations.substr(0, 8) + '...' : ''}</td>
                 </tr>

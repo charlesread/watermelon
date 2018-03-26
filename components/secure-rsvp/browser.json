@@ -1,6 +1,7 @@
 {
   "dependencies": [
     "./style.css",
-    "./lib.js"
+    "./lib.js",
+    "../../assets/bootstrap-confirmation.min.js"
   ]
 }

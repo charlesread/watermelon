@@ -167,7 +167,7 @@ hr {
     background-color: #fff;
 }
 
-#divRsvpPersons td:nth-child(4) .fa {
+#divRsvpPersons td:nth-child(3) .fa {
     color: #ddd;
     margin: auto 2px;
 }
@@ -193,4 +193,10 @@ hr {
 #divRsvpAdditionalAdd div[class*=col] {
     padding-top: 5px;
     padding-bottom: 5px;
+}
+
+.badEventRow {
+    background-color: #ffe8e8;
+    border-top: 1px dashed red;
+    border-bottom: 1px dashed red;
 }

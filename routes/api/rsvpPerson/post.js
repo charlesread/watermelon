@@ -20,7 +20,7 @@ module.exports = [
         const payload = req.payload
         const rsvp = (await db.query(sql.rsvp.get.by.userId, [user.id]))[0]
         if (rsvp) {
-          await db.query(sql.rsvpPerson.insert, [rsvp.id, payload.firstName, payload.lastName, null, payload.mealType, payload.considerations, payload.eventFriday, payload.eventSaturday, payload.eventSunday])
+          await db.query(sql.rsvpPerson.insert, [rsvp.id, payload.firstName, payload.lastName, null, null, payload.considerations, payload.eventFriday, payload.eventSaturday, payload.eventSunday])
         }
         return true
       } catch (err) {
