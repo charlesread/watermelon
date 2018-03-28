@@ -29,22 +29,26 @@
     margin: 10px;
 }
 
+#chkbxAttendNo:hover + span, #chkbxAttendYes:hover + span {
+    background-color: #f9f9f9;
+}
+
 #chkbxAttendNo:checked + span {
     border: 1px solid #dc3545;
+    background-color: #FFFFFF;
 }
 
 #chkbxAttendYes:checked + span {
     border: 1px solid #28a745;
+    background-color: #FFFFFF;
 }
 
 #divRsvpYesNo #chkbxAttendNo + span {
     color: #dc3545;
-
 }
 
 #divRsvpYesNo #chkbxAttendYes + span {
     color: #28a745;
-
 }
 
 #alertRsvp {
