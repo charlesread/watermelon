@@ -1,7 +1,7 @@
 .cache
 .idea
-static/**
-!static/.gitkeep
-node_modules
-config.js
+src/static/**
+!src/static/.gitkeep
+src/node_modules
+src/config.js
 .DS_Store
